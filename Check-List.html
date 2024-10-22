@@ -1,0 +1,1851 @@
+<!DOCTYPE html>
+<html lang="fr">
+<head>
+    <meta charset="UTF-8">
+    <title>Page d'Accueil avec Boutons Images</title>
+    <link href="https://fonts.googleapis.com/css2?family=Bebas+Neue&display=swap" rel="stylesheet"> 
+    <style>
+        body, html {
+            font-family: 'Bebas Neue', sans-serif;
+            font-size: 20px;
+            color: #ff5e00;
+            margin: 0;
+            padding: 0;
+            width: 100%;
+            height: 100%;
+            display: flex;
+            flex-direction: column;
+            background-image: url('https://i.imgur.com/BwoLRUW.jpg');
+            background-attachment: fixed;
+            background-size: cover;
+            background-position: center;
+            background-repeat: no-repeat;
+            text-shadow: -2px -2px 0 #000000, 2px -2px 0 #000000, -2px 2px 0 #000000, 2px 2px 0 #000000;
+        }
+
+        .navbar {
+            display: flex;
+            justify-content: space-around;
+            align-items: center;
+            width: 100%;
+            background-image: url(https://i.imgur.com/gb8A6Hr.jpg);
+            background-size: cover;
+            background-position: center;
+            background-color: #333;
+            position: fixed;
+            top: 0;
+            left: 0;
+            padding: 10px 0;
+            border-bottom: 3px solid #ff5e00;
+            z-index: 1000;
+        }
+        .bottom-navbar {
+            width: 100%;
+            background-image: url(https://i.imgur.com/gb8A6Hr.jpg);
+            background-color: #333;
+            border-top: 3px solid #ff5e00;
+            padding: 10px 0;
+            position: fixed;
+            bottom: 0;
+            left: 0;
+            z-index: 1000; /* Pour s'assurer qu'elle reste au-dessus des autres éléments */
+            text-align: center;
+            }
+
+        .main-content {
+            padding-top: 220px; /* Adjusted to account for navbar height */
+            display: flex;
+            flex-direction: column;
+            align-items: center; /* Centers content */
+            width: auto;
+        }
+
+        /* Styles du tableau */
+        table {
+            width: 95%; /* Réduire la largeur du tableau pour ne pas qu'il soit collé aux bords */
+            margin: 20px auto; /* Centrer horizontalement et ajouter une marge en haut et en bas */
+            border-collapse: collapse;
+            display: none;
+        }
+        th, td {
+            border: 3px solid #000;
+            padding: 8px;
+            text-align: left;
+        }
+        th {
+            background-color: #ff7b007a;
+            text-align: center;
+            font-size: 30px;
+        }
+        .tier1, .tier2, .tier3 {
+            background-color: #ff910079;
+            transition: background-color 1s;
+        }
+        .completed {
+            background-color: #00da33be !important;
+        }
+        .locked {
+            opacity: 0.5;
+        }
+        .category-header {
+            background-color: #000000af;
+            color: #fff;
+            text-align: center;
+        }
+        input[type="checkbox"] {
+            transform: scale(1.2);
+        }
+
+        /* Texte invisible pour les cellules verrouillées */
+        .invisible {
+            visibility: hidden;
+        }
+        .navbar {
+            display: flex;
+            justify-content: space-around;
+            align-items: center;
+            width: 100%;
+            background-image: url(https://i.imgur.com/gb8A6Hr.jpg);
+            background-size: cover;
+            background-position: center;
+            background-color: #333;
+            position: fixed;
+            top: 0;
+            left: 0;
+            padding: 10px 0;
+            border-bottom: 3px solid #ff5e00;
+            z-index: 1000;
+            }
+        /* Conteneur pour la barre de progression */
+        .progress-container {
+            width: 90%; /* Largeur de la barre de progression */
+            background-color: #8f8f8f;
+            border: 2px solid #000;
+            border-radius: 25px;
+            height: 30px; /* Hauteur de la barre */
+            margin: 20px auto;
+            overflow: hidden; /* Cache les débordements */
+            position: relative; /* Permet à la progress-text de se positionner par rapport à la barre */
+            }
+
+        .progress-bar {
+            height: 100%;
+            background-color: #ff5e00;
+            width: 0%;
+            border-radius: 25px;
+            transition: width 0.5s ease;
+            }
+
+        .progress-text {
+            position: absolute;
+            top: 0;
+            left: 0;
+            width: 100%;
+            text-align: center;
+            color: rgb(255, 102, 0);
+            font-size: 25px;
+            line-height: 30px; /* Alignement vertical au centre */
+            z-index: 10; /* Assure que le texte est toujours au-dessus de la barre de progression */
+            }
+        .toggle-button {
+            font-family: 'Bebas Neue', sans-serif;
+            font-size: 25px;
+            width: 380px;
+            background-color: #ff5e00;
+            color: white;
+            padding: 10px 20px;
+            border: none;
+            cursor: pointer;
+            border-radius: 5px;
+            margin-bottom: 10px;
+        }
+
+        .toggle-button:hover {
+            background-color: hsl(239, 87%, 57%);
+        }
+    </style>
+</head>
+
+<body> 
+    <div class="navbar">
+        <a href="Untitled-2.html">
+            <img class="button" src="https://i.imgur.com/qSIUdoa.png" alt="Accueil" 
+                onmouseover="this.src='https://i.imgur.com/eTJ4Czl.png';" 
+                onmouseout="this.src='https://i.imgur.com/qSIUdoa.png';">
+        </a>
+        <a href="membres.html">
+            <img class="button" src="https://i.imgur.com/LoXJ9Mm.png" alt="Membres" 
+                onmouseover="this.src='https://i.imgur.com/m3Fl9eq.png';" 
+                onmouseout="this.src='https://i.imgur.com/LoXJ9Mm.png';">
+        </a>
+
+        <a href="Grades.html">
+            <img class="button" src="https://i.imgur.com/2PKWJiJ.png" alt="Grades" 
+                onmouseover="this.src='https://i.imgur.com/60vPKEA.png';" 
+                onmouseout="this.src='https://i.imgur.com/2PKWJiJ.png';">
+        </a>
+
+        <a href="Médailles.html">
+            <img class="button" src="https://i.imgur.com/kzZrU05.png" alt="Médailles" 
+                onmouseover="this.src='https://i.imgur.com/4beZ6fQ.png';" 
+                onmouseout="this.src='https://i.imgur.com/kzZrU05.png';">
+        </a>
+
+        <a href="Données.html">
+            <img class="button" src="https://i.imgur.com/yeQwmjM.png" alt="Données" 
+                onmouseover="this.src='https://i.imgur.com/yeQwmjM.png';" 
+                onmouseout="this.src='https://i.imgur.com/yeQwmjM.png';">
+        </a>
+    </div>
+
+    <div class="main-content">
+        <!-- Ton contenu original ici -->
+
+        <!-- Nouveau tableau avec cases à cocher -->
+        <h1>Check-List</h1>
+
+        <!-- Bouton depliable/repliable pour la section Solde -->
+        <button class="toggle-button" onclick="toggleTable('table-solde')">Catégorie "Solde"</button>
+        <table id="table-solde">
+            <!-- Solde section -->
+            <tr class="category-header">
+                <th colspan="3">Solde</th>
+            </tr>
+            <tr>
+                <th>Tier 1</th>
+                <th>Tier 2</th>
+                <th>Tier 3</th>
+            </tr>
+            <tr>
+                <td class="tier1">
+                    <input type="checkbox" id="solde1" data-points="5" onclick="validateTier('solde1', 'solde2')">
+                    Posséder au moins 1,000,000,000 Cr en actifs
+                </td>
+                <td class="tier2 locked">
+                    <input type="checkbox" id="solde2" data-points="10" onclick="validateTier('solde2', 'solde3')" disabled>
+                    <span class="invisible">Posséder au moins 5,000,000,000 Cr en actifs</span>
+                </td>
+                <td class="tier3 locked">
+                    <input type="checkbox" id="solde3" data-points="20" onclick="validateTier('solde3')" disabled>
+                    <span class="invisible">Posséder au moins 10,000,000,000 Cr en actifs</span>
+                </td>
+            </tr>
+            <tr>
+                <td class="tier1">
+                    <input type="checkbox" id="solde4" onclick="validateTier('solde4', 'solde5')">
+                    Avoir dépensé au moins 500,000,000 Cr en vaisseaux
+                </td>
+                <td class="tier2 locked">
+                    <input type="checkbox" id="solde5" onclick="validateTier('solde5', 'solde6')" disabled>
+                    <span class="invisible">Avoir dépensé au moins 1,000,000,000 Cr en vaisseaux</span>
+                </td>
+                <td class="tier3 locked">
+                    <input type="checkbox" id="solde6" onclick="validateTier('solde6')" disabled>
+                    <span class="invisible">Avoir dépensé au moins 5,000,000,000 Cr en vaisseaux</span>
+                </td>
+            </tr>
+            <tr>
+                <td class="tier1">
+                    <input type="checkbox" id="solde7" onclick="validateTier('solde7', 'solde8')">
+                    Avoir dépensé au moins 1.000,000.000 Cr en modules
+                </td>
+                <td class="tier2 locked">
+                    <input type="checkbox" id="solde8" onclick="validateTier('solde8', 'solde9')" disabled>
+                    <span class="invisible">Avoir dépensé au moins 2,000,000,000 Cr en modules</span>
+                </td>
+                <td class="tier3 locked">
+                    <input type="checkbox" id="solde9" onclick="validateTier('solde9')" disabled>
+                    <span class="invisible">Avoir dépensé au moins 2,500,000,000 Cr en modules</span>
+                </td>
+            </tr>
+            <tr>
+                <td class="tier1">
+                    <input type="checkbox" id="solde10" onclick="validateTier('solde10', 'solde11')">
+                    Avoir dépensé au moins 5.000,000 Cr en réparations
+                </td>
+                <td class="tier2 locked">
+                    <input type="checkbox" id="solde11" onclick="validateTier('solde11', 'solde12')" disabled>
+                    <span class="invisible">Avoir dépensé au moins 50,000,000 Cr en réparations</span>
+                </td>
+                <td class="tier3 locked">
+                    <input type="checkbox" id="solde12" onclick="validateTier('solde12')" disabled>
+                    <span class="invisible">Avoir dépensé au moins 100,000,000 Cr en réparations</span>
+                </td>
+            </tr>
+            <tr>
+                <td class="tier1">
+                    <input type="checkbox" id="solde13" onclick="validateTier('solde13', 'solde14')">
+                    Avoir dépensé au moins 500,000 Cr en carburant
+                </td>
+                <td class="tier2 locked">
+                    <input type="checkbox" id="solde14" onclick="validateTier('solde14', 'solde15')" disabled>
+                    <span class="invisible">Avoir dépensé au moins 5,000,000 Cr en carburant</span>
+                </td>
+                <td class="tier3 locked">
+                    <input type="checkbox" id="solde15" onclick="validateTier('solde15')" disabled>
+                    <span class="invisible">Avoir dépensé au moins 10,000,000 Cr en carburant</span>
+                </td>
+            </tr>
+            <tr>
+                <td class="tier1">
+                    <input type="checkbox" id="solde16" onclick="validateTier('solde16', 'solde17')">
+                    Avoir dépensé au moins 1.000,000 Cr en munitions
+                </td>
+                <td class="tier2 locked">
+                    <input type="checkbox" id="solde17" onclick="validateTier('solde17', 'solde18')" disabled>
+                    <span class="invisible">Avoir dépensé au moins 5,000,000 Cr en munitions</span>
+                </td>
+                <td class="tier3 locked">
+                    <input type="checkbox" id="solde18" onclick="validateTier('solde18')" disabled>
+                    <span class="invisible">Avoir dépensé au moins 10,000,000 Cr en munitions</span>
+                </td>
+            </tr>
+            <tr>
+                <td class="tier1">
+                    <input type="checkbox" id="solde19" onclick="validateTier('solde19', 'solde20')">
+                    Posseder au moins 10 vaisseaux
+                </td>
+                <td class="tier2 locked">
+                    <input type="checkbox" id="solde20" onclick="validateTier('solde20', 'solde21')" disabled>
+                    <span class="invisible">Posseder au moins 20 vaisseaux</span>
+                </td>
+                <td class="tier3 locked">
+                    <input type="checkbox" id="solde21" onclick="validateTier('solde21')" disabled>
+                    <span class="invisible">Posseder au moins 40 vaisseaux</span>
+                </td>
+            </tr>
+            <tr>
+                <td class="tier1">
+                    <input type="checkbox" id="solde22" onclick="validateTier('solde22', 'solde23')">
+                    Avoir dépensé au moins 10.000.000 Cr en combinaisons
+                </td>
+                <td class="tier2 locked">
+                    <input type="checkbox" id="solde23" onclick="validateTier('solde23', 'solde24')" disabled>
+                    <span class="invisible">Avoir dépensé au moins 50.000.000 Cr en combinaisons</span>
+                </td>
+                <td class="tier3 locked">
+                    <input type="checkbox" id="solde24" onclick="validateTier('solde24')" disabled>
+                    <span class="invisible">Avoir dépensé au moins 100.000.000 Cr en combinaisons</span>
+                </td>
+            </tr>
+            <tr>
+                <td class="tier1">
+                    <input type="checkbox" id="solde25" onclick="validateTier('solde25', 'solde26')">
+                    Avoir dépensé au moins 10.000.000 Cr en armes de poing
+                </td>
+                <td class="tier2 locked">
+                    <input type="checkbox" id="solde26" onclick="validateTier('solde26', 'solde27')" disabled>
+                    <span class="invisible">Avoir dépensé au moins 50.000.000 Cr en armes de poing</span>
+                </td>
+                <td class="tier3 locked">
+                    <input type="checkbox" id="solde27" onclick="validateTier('solde27')" disabled>
+                    <span class="invisible">Avoir dépensé au moins 100.000.000 Cr en armes de poing</span>
+                </td>
+            </tr>
+            <tr>
+                <td class="tier1">
+                    <input type="checkbox" id="solde28" onclick="validateTier('solde28', 'solde29')">
+                    Avoir dépensé au moins 5.000.000 Cr en consommables
+                </td>
+                <td class="tier2 locked">
+                    <input type="checkbox" id="solde29" onclick="validateTier('solde29', 'solde30')" disabled>
+                    <span class="invisible">Avoir dépensé au moins 10.000.000 Cr en consommables</span>
+                </td>
+                <td class="tier3 locked">
+                    <input type="checkbox" id="solde30" onclick="validateTier('solde30')" disabled>
+                    <span class="invisible">Avoir dépensé au moins 50.000.000 Cr en consommables</span>
+                </td>
+            </tr>
+            <tr>
+                <td class="tier1">
+                    <input type="checkbox" id="solde31" onclick="validateTier('solde31', 'solde32')">
+                    Posseder au moins 3 combinaisons
+                </td>
+                <td class="tier2 locked">
+                    <input type="checkbox" id="solde32" onclick="validateTier('solde32', 'solde33')" disabled>
+                    <span class="invisible">Posseder au moins 10 combinaisons</span>
+                </td>
+                <td class="tier3 locked">
+                    <input type="checkbox" id="solde33" onclick="validateTier('solde33')" disabled>
+                    <span class="invisible">Posseder au moins 15 combinaisons</span>
+                </td>
+            </tr>
+            <tr>
+                <td class="tier1">
+                    <input type="checkbox" id="solde34" onclick="validateTier('solde34', 'solde35')">
+                    Posseder au moins 5 armes de poing
+                </td>
+                <td class="tier2 locked">
+                    <input type="checkbox" id="solde35" onclick="validateTier('solde35', 'solde36')" disabled>
+                    <span class="invisible">Posseder au moins 10 armes de poing</span>
+                </td>
+                <td class="tier3 locked">
+                    <input type="checkbox" id="solde36" onclick="validateTier('solde36')" disabled>
+                    <span class="invisible">Posseder au moins 15 armes de poing</span>
+                </td>
+            </tr>
+            <tr>
+                <td class="tier1">
+                    <input type="checkbox" id="solde37" onclick="validateTier('solde37')">
+                    Posseder un fleet carrier
+                </td>
+                <td class="tier2 locked">
+                    <input type="checkbox" id="solde38" disabled>
+                    <span class="invisible"></span>
+                </td>
+                <td class="tier3 locked">
+                    <input type="checkbox" id="solde39" disabled>
+                    <span class="invisible"></span>
+                </td>
+            </tr>
+            <!-- Tu peux ajouter d'autres sections ici -->
+
+        </table>
+        <!-- Bouton depliable/repliable pour la section Combat & Crimes -->
+        <button class="toggle-button" onclick="toggleTable('table-combat')">Catégorie "Combat & Crimes"</button>
+        <table id="table-combat">
+            <!-- Solde section -->
+            <tr class="category-header">
+                <th colspan="3">Combat & Crimes</th>
+            </tr>
+            <tr>
+                <th>Tier 1</th>
+                <th>Tier 2</th>
+                <th>Tier 3</th>
+            </tr>
+            <tr>
+                <td class="tier1">
+                    <input type="checkbox" id="solde40" onclick="validateTier('solde40', 'solde41')">
+                    Avoir encaissé au moins 500,000,000 cr en primes de combats
+                </td>
+                <td class="tier2 locked">
+                    <input type="checkbox" id="solde41" onclick="validateTier('solde41', 'solde42')" disabled>
+                    <span class="invisible">Avoir encaissé au moins 1.000,000,000 cr en primes de combats</span>
+                </td>
+                <td class="tier3 locked">
+                    <input type="checkbox" id="solde42" onclick="validateTier('solde42')" disabled>
+                    <span class="invisible">Avoir encaissé au moins 2.000,000,000 cr en primes de combats</span>
+                </td>
+            </tr>
+            <tr>
+                <td class="tier1">
+                    <input type="checkbox" id="solde43" onclick="validateTier('solde43', 'solde44')">
+                    Avoir encaissé au moins 500,000,000 cr en bons de combats
+                </td>
+                <td class="tier2 locked">
+                    <input type="checkbox" id="solde44" onclick="validateTier('solde44', 'solde45')" disabled>
+                    <span class="invisible">Avoir encaissé au moins 1.000,000,000 cr en bons de combats</span>
+                </td>
+                <td class="tier3 locked">
+                    <input type="checkbox" id="solde45" onclick="validateTier('solde45')" disabled>
+                    <span class="invisible">Avoir encaissé au moins 2.000,000,000 cr en bons de combats</span>
+                </td>
+            </tr>
+            <tr>
+                <td class="tier1">
+                    <input type="checkbox" id="solde46" onclick="validateTier('solde46', 'solde47')">
+                    Avoir encaissé au moins 100,000,000 cr en primes d'assassinat
+                </td>
+                <td class="tier2 locked">
+                    <input type="checkbox" id="solde47" onclick="validateTier('solde47', 'solde48')" disabled>
+                    <span class="invisible">Avoir encaissé au moins 500,000,000 cr en primes d'assassinat</span>
+                </td>
+                <td class="tier3 locked">
+                    <input type="checkbox" id="solde48" onclick="validateTier('solde48')" disabled>
+                    <span class="invisible">Avoir encaissé au moins 1.000,000,000 cr en primes d'assassinat</span>
+                </td>
+            </tr>
+            <tr>
+                <td class="tier1">
+                    <input type="checkbox" id="solde49" onclick="validateTier('solde49', 'solde50')">
+                    Avoir encaissé au moins 100,000,000 cr en récompenses de combats de surface
+                </td>
+                <td class="tier2 locked">
+                    <input type="checkbox" id="solde50" onclick="validateTier('solde50', 'solde51')" disabled>
+                    <span class="invisible">Avoir encaissé au moins 500,000,000 cr en récompenses de combats de surface</span>
+                </td>
+                <td class="tier3 locked">
+                    <input type="checkbox" id="solde51" onclick="validateTier('solde51')" disabled>
+                    <span class="invisible">Avoir encaissé au moins 1.000,000,000 cr en récompenses de combats de surface</span>
+                </td>
+            </tr>
+            <tr>
+                <td class="tier1">
+                    <input type="checkbox" id="solde52" onclick="validateTier('solde52', 'solde53')">
+                    Avoir remporté la victoire sur au moins 100 zones de conflit de forte intensité
+                </td>
+                <td class="tier2 locked">
+                    <input type="checkbox" id="solde53" onclick="validateTier('solde53', 'solde54')" disabled>
+                    <span class="invisible">Avoir remporté la victoire sur au moins 500 zones de conflit de forte intensité</span>
+                </td>
+                <td class="tier3 locked">
+                    <input type="checkbox" id="solde54" onclick="validateTier('solde54')" disabled>
+                    <span class="invisible">Avoir remporté la victoire sur au moins 1000 zones de conflit de forte intensité</span>
+                </td>
+            </tr>
+            <tr>
+                <td class="tier1">
+                    <input type="checkbox" id="solde55" onclick="validateTier('solde55', 'solde56')">
+                    Avoir remporté la victoire sur au moins 50 zones de conflit de faible intensité
+                </td>
+                <td class="tier2 locked">
+                    <input type="checkbox" id="solde56" onclick="validateTier('solde56', 'solde57')" disabled>
+                    <span class="invisible">Avoir remporté la victoire sur au moins 250 zones de conflit de faible intensité</span>
+                </td>
+                <td class="tier3 locked">
+                    <input type="checkbox" id="solde57" onclick="validateTier('solde57')" disabled>
+                    <span class="invisible">Avoir remporté la victoire sur au moins 500 zones de conflit de faible intensité</span>
+                </td>
+            </tr>
+            <tr>
+                <td class="tier1">
+                    <input type="checkbox" id="solde58" onclick="validateTier('solde58', 'solde59')">
+                    Avoir tué au moins 100 charognards
+                </td>
+                <td class="tier2 locked">
+                    <input type="checkbox" id="solde59" onclick="validateTier('solde59', 'solde60')" disabled>
+                    <span class="invisible">Avoir tué au moins 500 charognards</span>
+                </td>
+                <td class="tier3 locked">
+                    <input type="checkbox" id="solde60" onclick="validateTier('solde60')" disabled>
+                    <span class="invisible">Avoir tué au moins 1000 charognards</span>
+                </td>
+            </tr>
+            <tr>
+                <td class="tier1">
+                    <input type="checkbox" id="solde61" onclick="validateTier('solde61', 'solde62')">
+                    Vous avez reçu au moins 1500 amendes
+                </td>
+                <td class="tier2 locked">
+                    <input type="checkbox" id="solde62" onclick="validateTier('solde62', 'solde63')" disabled>
+                    <span class="invisible">Vous avez reçu au moins 3000 amendes</span>
+                </td>
+                <td class="tier3 locked">
+                    <input type="checkbox" id="solde63" onclick="validateTier('solde63')" disabled>
+                    <span class="invisible">Vous avez reçu au moins 5000 amendes</span>
+                </td>
+            </tr>
+            <tr>
+                <td class="tier1">
+                    <input type="checkbox" id="solde64" onclick="validateTier('solde64', 'solde65')">
+                    Vous avez reçu au moins 10.000 Primes
+                </td>
+                <td class="tier2 locked">
+                    <input type="checkbox" id="solde65" onclick="validateTier('solde65', 'solde66')" disabled>
+                    <span class="invisible">Vous avez reçu au moins 20.000 Primes</span>
+                </td>
+                <td class="tier3 locked">
+                    <input type="checkbox" id="solde66" onclick="validateTier('solde66')" disabled>
+                    <span class="invisible">Vous avez reçu au moins 50.000 Primes</span>
+                </td>
+            </tr>
+            <tr>
+                <td class="tier1">
+                    <input type="checkbox" id="solde67" onclick="validateTier('solde67', 'solde68')">
+                    Vous avez commis au moins 1500 meurtres
+                </td>
+                <td class="tier2 locked">
+                    <input type="checkbox" id="solde68" onclick="validateTier('solde68', 'solde69')" disabled>
+                    <span class="invisible">Vous avez commis au moins 3000 meurtres</span>
+                </td>
+                <td class="tier3 locked">
+                    <input type="checkbox" id="solde69" onclick="validateTier('solde69')" disabled>
+                    <span class="invisible">Vous avez commis au moins 5000 meurtres</span>
+                </td>
+            </tr>
+            <tr>
+                <td class="tier1">
+                    <input type="checkbox" id="solde70" onclick="validateTier('solde70', 'solde71')">
+                    Vous avez abattu au moins 1500 Citoyens
+                </td>
+                <td class="tier2 locked">
+                    <input type="checkbox" id="solde71" onclick="validateTier('solde71', 'solde72')" disabled>
+                    <span class="invisible">Vous avez abattu au moins 3000 Citoyens</span>
+                </td>
+                <td class="tier3 locked">
+                    <input type="checkbox" id="solde72" onclick="validateTier('solde72')" disabled>
+                    <span class="invisible">Vous avez abattu au moins 5000 Citoyens</span>
+                </td>
+            </tr>
+            <tr>
+                <td class="tier1">
+                    <input type="checkbox" id="solde73" onclick="validateTier('solde73', 'solde74')">
+                    Vous avez abattu au moins 1500 gardes
+                </td>
+                <td class="tier2 locked">
+                    <input type="checkbox" id="solde74" onclick="validateTier('solde74', 'solde75')" disabled>
+                    <span class="invisible">Vous avez abattu au moins 3000 gardes</span>
+                </td>
+                <td class="tier3 locked">
+                    <input type="checkbox" id="solde75" onclick="validateTier('solde75')" disabled>
+                    <span class="invisible">Vous avez abattu au moins 5000 gardes</span>
+                </td>
+            </tr>
+            <tr>
+                <td class="tier1">
+                    <input type="checkbox" id="solde76" onclick="validateTier('solde76', 'solde77')">
+                    Vous avez abattu au moins 50 Agents d'Omnipol
+                </td>
+                <td class="tier2 locked">
+                    <input type="checkbox" id="solde77" onclick="validateTier('solde77', 'solde78')" disabled>
+                    <span class="invisible">Vous avez abattu au moins 100 Agents d'Omnipol</span>
+                </td>
+                <td class="tier3 locked">
+                    <input type="checkbox" id="solde78" onclick="validateTier('solde78')" disabled>
+                    <span class="invisible">Vous avez abattu au moins 500 Agents d'Omnipol</span>
+                </td>
+            </tr>
+        </table>
+        <!-- Bouton depliable/repliable pour la section Commerce & Contrebande -->
+        <button class="toggle-button" onclick="toggleTable('table-commerce')">Catégorie "Commerce & Contrebande"</button>
+        <table id="table-commerce">
+            <!-- Solde section -->
+            <tr class="category-header">
+                <th colspan="3">Commerce & Contrebande</th>
+            </tr>
+            <tr>
+                <th>Tier 1</th>
+                <th>Tier 2</th>
+                <th>Tier 3</th>
+            </tr>
+            <tr>
+                <td class="tier1">
+                    <input type="checkbox" id="solde79" onclick="validateTier('solde79', 'solde80')">
+                    Avoir passé au moins 2000 marchandises de contrebande
+                </td>
+                <td class="tier2 locked">
+                    <input type="checkbox" id="solde80" onclick="validateTier('solde80', 'solde81')" disabled>
+                    <span class="invisible">Avoir passé au moins 5000 marchandises de contrebande</span>
+                </td>
+                <td class="tier3 locked">
+                    <input type="checkbox" id="solde81" onclick="validateTier('solde81')" disabled>
+                    <span class="invisible">Avoir passé au moins 10.000 marchandises de contrebande</span>
+                </td>
+            </tr>
+            <tr>
+                <td class="tier1">
+                    <input type="checkbox" id="solde82" onclick="validateTier('solde82', 'solde83')">
+                    Avoir commercé avec au moins 100 réseaux commerciaux différents
+                </td>
+                <td class="tier2 locked">
+                    <input type="checkbox" id="solde83" onclick="validateTier('solde83', 'solde84')" disabled>
+                    <span class="invisible">Avoir commercé avec au moins 200 réseaux commerciaux différents</span>
+                </td>
+                <td class="tier3 locked">
+                    <input type="checkbox" id="solde84" onclick="validateTier('solde84')" disabled>
+                    <span class="invisible">Avoir commercé avec au moins 500 réseaux commerciaux différents</span>
+                </td>
+            </tr>
+            <tr>
+                <td class="tier1">
+                    <input type="checkbox" id="solde85" onclick="validateTier('solde85', 'solde86')">
+                    Avoir réalisé un bénéfice d'au moins 1,000,000,000 cr en commerce
+                </td>
+                <td class="tier2 locked">
+                    <input type="checkbox" id="solde86" onclick="validateTier('solde86', 'solde87')" disabled>
+                    <span class="invisible">Avoir réalisé un bénéfice d'au moins 2,000,000,000 cr en commerce</span>
+                </td>
+                <td class="tier3 locked">
+                    <input type="checkbox" id="solde87" onclick="validateTier('solde87')" disabled>
+                    <span class="invisible">Avoir réalisé un bénéfice d'au moins 5,000,000,000 cr en commerce</span>
+                </td>
+            </tr>
+            <tr>
+                <td class="tier1">
+                    <input type="checkbox" id="solde88" onclick="validateTier('solde88', 'solde89')">
+                    Avoir vendu au moins 100,000 marchandises
+                </td>
+                <td class="tier2 locked">
+                    <input type="checkbox" id="solde89" onclick="validateTier('solde89', 'solde90')"0 disabled>
+                    <span class="invisible">Avoir vendu au moins 200,000 marchandises</span>
+                </td>
+                <td class="tier3 locked">
+                    <input type="checkbox" id="solde90" onclick="validateTier('solde90')" disabled>
+                    <span class="invisible">Avoir vendu au moins 500,000 marchandises</span>
+                </td>
+            </tr>
+            <tr>
+                <td class="tier1">
+                    <input type="checkbox" id="solde91" onclick="validateTier('solde91', 'solde92')">
+                    Avoir miné au moins 10,000 minerais
+                </td>
+                <td class="tier2 locked">
+                    <input type="checkbox" id="solde92" onclick="validateTier('solde92', 'solde93')" disabled>
+                    <span class="invisible">Avoir miné au moins 20,000 minerais</span>
+                </td>
+                <td class="tier3 locked">
+                    <input type="checkbox" id="solde93" onclick="validateTier('solde93')" disabled>
+                    <span class="invisible">Avoir miné au moins 50,000 minerais</span>
+                </td>
+            </tr>
+            <tr>
+                <td class="tier1">
+                    <input type="checkbox" id="solde94" onclick="validateTier('solde94', 'solde95')">
+                    Avoir réalisé un bénéfice d'au moins 1,000,000,000 cr en minage
+                </td>
+                <td class="tier2 locked">
+                    <input type="checkbox" id="solde95" onclick="validateTier('solde95', 'solde96')" disabled>
+                    <span class="invisible">Avoir réalisé un bénéfice d'au moins 2,000,000,000 cr en minage</span>
+                </td>
+                <td class="tier3 locked">
+                    <input type="checkbox" id="solde96" onclick="validateTier('solde98')" disabled>
+                    <span class="invisible">Avoir réalisé un bénéfice d'au moins 5,000,000,000 cr en minage</span>
+                </td>
+            </tr>
+        </table>
+        <!-- Bouton depliable/repliable pour la section Exploration -->
+        <button class="toggle-button" onclick="toggleTable('table-exploration')">Catégorie "Exploration"</button>
+        <table id="table-exploration">
+            <!-- Solde section -->
+            <tr class="category-header">
+                <th colspan="3">Exploration</th>
+            </tr>
+            <tr>
+                <th>Tier 1</th>
+                <th>Tier 2</th>
+                <th>Tier 3</th>
+            </tr>
+            <tr>
+                <td class="tier1">
+                    <input type="checkbox" id="solde97" onclick="validateTier('solde97', 'solde98')">
+                    Avoir visité au moins 5,000 systèmes différents
+                </td>
+                <td class="tier2 locked">
+                    <input type="checkbox" id="solde98" onclick="validateTier('solde98', 'solde99')" disabled>
+                    <span class="invisible">Avoir visité au moins 10,000 systèmes différents</span>
+                </td>
+                <td class="tier3 locked">
+                    <input type="checkbox" id="solde99" onclick="validateTier('solde99')" disabled>
+                    <span class="invisible">Avoir visité au moins 50,000 systèmes différents</span>
+                </td>
+            </tr>
+            <tr>
+                <td class="tier1">
+                    <input type="checkbox" id="solde100" onclick="validateTier('solde100', 'solde101')">
+                    Avoir réalisé un bénéfice d'au moins 500,000,000 cr en exploration
+                </td>
+                <td class="tier2 locked">
+                    <input type="checkbox" id="solde101" onclick="validateTier('solde101', 'solde102')" disabled>
+                    <span class="invisible">Avoir réalisé un bénéfice d'au moins 1.000,000,000 cr en exploration</span>
+                </td>
+                <td class="tier3 locked">
+                    <input type="checkbox" id="solde102" onclick="validateTier('solde102')" disabled>
+                    <span class="invisible">Avoir réalisé un bénéfice d'au moins 5.000,000,000 cr en exploration</span>
+                </td>
+            </tr>
+            <tr>
+                <td class="tier1">
+                    <input type="checkbox" id="solde103" onclick="validateTier('solde103', 'solde104')">
+                    Avoir réalisé au moins 10,000 analyses détaillées de niveau 2
+                </td>
+                <td class="tier2 locked">
+                    <input type="checkbox" id="solde104" onclick="validateTier('solde104', 'solde105')" disabled>
+                    <span class="invisible">Avoir réalisé au moins 20,000 analyses détaillées de niveau 2</span>
+                </td>
+                <td class="tier3 locked">
+                    <input type="checkbox" id="solde105" onclick="validateTier('solde105')" disabled>
+                    <span class="invisible">Avoir réalisé au moins 50,000 analyses détaillées de niveau 2</span>
+                </td>
+            </tr>
+            <tr>
+                <td class="tier1">
+                    <input type="checkbox" id="solde106" onclick="validateTier('solde106', 'solde107')">
+                    Avoir réalisé au moins 10,000 analyses détaillées de niveau 3
+                </td>
+                <td class="tier2 locked">
+                    <input type="checkbox" id="solde107" onclick="validateTier('solde107', 'solde108')"0 disabled>
+                    <span class="invisible">Avoir réalisé au moins 20,000 analyses détaillées de niveau 3</span>
+                </td>
+                <td class="tier3 locked">
+                    <input type="checkbox" id="solde108" onclick="validateTier('solde108')" disabled>
+                    <span class="invisible">Avoir réalisé au moins 50,000 analyses détaillées de niveau 3</span>
+                </td>
+            </tr>
+            <tr>
+                <td class="tier1">
+                    <input type="checkbox" id="solde109" onclick="validateTier('solde109', 'solde110')">
+                    Avoir reçu au moins 100 bonus d'éfficacité
+                </td>
+                <td class="tier2 locked">
+                    <input type="checkbox" id="solde110" onclick="validateTier('solde110', 'solde111')" disabled>
+                    <span class="invisible">Avoir reçu au moins 200 bonus d'éfficacité</span>
+                </td>
+                <td class="tier3 locked">
+                    <input type="checkbox" id="solde111" onclick="validateTier('solde111')" disabled>
+                    <span class="invisible">Avoir reçu au moins 500 bonus d'éfficacité</span>
+                </td>
+            </tr>
+            <tr>
+                <td class="tier1">
+                    <input type="checkbox" id="solde112" onclick="validateTier('solde112', 'solde113')">
+                    Avoir parcouru une distance d'au moins 500,000 al en hyperespace
+                </td>
+                <td class="tier2 locked">
+                    <input type="checkbox" id="solde113" onclick="validateTier('solde113', 'solde114')" disabled>
+                    <span class="invisible">Avoir parcouru une distance d'au moins 1.000,000 al en hyperespace</span>
+                </td>
+                <td class="tier3 locked">
+                    <input type="checkbox" id="solde114" onclick="validateTier('solde114')" disabled>
+                    <span class="invisible">Avoir parcouru une distance d'au moins 5.000,000 al en hyperespace</span>
+                </td>
+            </tr>
+            <tr>
+                <td class="tier1">
+                    <input type="checkbox" id="solde115" onclick="validateTier('solde115', 'solde116')">
+                    Avoir réalisé au moins 10,000 sauts en hyperespace
+                </td>
+                <td class="tier2 locked">
+                    <input type="checkbox" id="solde116" onclick="validateTier('solde116', 'solde117')" disabled>
+                    <span class="invisible">Avoir réalisé au moins 20,000 sauts en hyperespace</span>
+                </td>
+                <td class="tier3 locked">
+                    <input type="checkbox" id="solde117" onclick="validateTier('solde117')" disabled>
+                    <span class="invisible">Avoir réalisé au moins 50,000 sauts en hyperespace</span>
+                </td>
+            </tr>
+            <tr>
+                <td class="tier1">
+                    <input type="checkbox" id="solde118" onclick="validateTier('solde118', 'solde119')">
+                    S'être éloigné d'au moins 25,000 al de son point de départ
+                </td>
+                <td class="tier2 locked">
+                    <input type="checkbox" id="solde119" onclick="validateTier('solde119', 'solde120')" disabled>
+                    <span class="invisible">S'être éloigné d'au moins 30,000 al de son point de départ</span>
+                </td>
+                <td class="tier3 locked">
+                    <input type="checkbox" id="solde120" onclick="validateTier('solde120')" disabled>
+                    <span class="invisible">S'être éloigné d'au moins 50,000 al de son point de départ</span>
+                </td>
+            </tr>
+            <tr>
+                <td class="tier1">
+                    <input type="checkbox" id="solde121" onclick="validateTier('solde121', 'solde122')">
+                    Avoir éffectué au moins 50 premiers debarquements
+                </td>
+                <td class="tier2 locked">
+                    <input type="checkbox" id="solde122" onclick="validateTier('solde122', 'solde123')" disabled>
+                    <span class="invisible">Avoir éffectué au moins 100 premiers debarquements</span>
+                </td>
+                <td class="tier3 locked">
+                    <input type="checkbox" id="solde123" onclick="validateTier('solde123')" disabled>
+                    <span class="invisible">Avoir éffectué au moins 500 premiers debarquements</span>
+                </td>
+            </tr>
+            <tr>
+                <td class="tier1">
+                    <input type="checkbox" id="solde124" onclick="validateTier('solde124', 'solde125')">
+                    Avoir parcouru une distance d'au moins 1 MM en vrs
+                </td>
+                <td class="tier2 locked">
+                    <input type="checkbox" id="solde125" onclick="validateTier('solde125', 'solde126')" disabled>
+                    <span class="invisible">Avoir parcouru une distance d'au moins 5 MM en vrs</span>
+                </td>
+                <td class="tier3 locked">
+                    <input type="checkbox" id="solde126" onclick="validateTier('solde126')" disabled>
+                    <span class="invisible">Avoir parcouru une distance d'au moins 10 MM en vrs</span>
+                </td>
+            </tr>
+            <tr>
+                <td class="tier1">
+                    <input type="checkbox" id="solde127" onclick="validateTier('solde127', 'solde128')">
+                    Avoir visité au moins 100 installations différentes
+                </td>
+                <td class="tier2 locked">
+                    <input type="checkbox" id="solde128" onclick="validateTier('solde128', 'solde129')" disabled>
+                    <span class="invisible">Avoir visité au moins 200 installations différentes</span>
+                </td>
+                <td class="tier3 locked">
+                    <input type="checkbox" id="solde129" onclick="validateTier('solde129')" disabled>
+                    <span class="invisible">Avoir visité au moins 500 installations différentes</span>
+                </td>
+            </tr>
+            <tr>
+                <td class="tier1">
+                    <input type="checkbox" id="solde130" onclick="validateTier('solde130', 'solde131')">
+                    S'être rendu au moins 1 fois à colonia
+                </td>
+                <td class="tier2 locked">
+                    <input type="checkbox" id="solde131" onclick="validateTier('solde131', 'solde132')" disabled>
+                    <span class="invisible">S'être rendu au moins 5 fois à colonia</span>
+                </td>
+                <td class="tier3 locked">
+                    <input type="checkbox" id="solde132" onclick="validateTier('solde132')" disabled>
+                    <span class="invisible">S'être rendu au moins 10 fois à colonia</span>
+                </td>
+            </tr>
+            <tr>
+                <td class="tier1">
+                    <input type="checkbox" id="solde133" onclick="validateTier('solde133', 'solde134')">
+                    S'être rendu au moins 1 fois au centre galactique (sagitarius a*)
+                </td>
+                <td class="tier2 locked">
+                    <input type="checkbox" id="solde134" onclick="validateTier('solde134', 'solde135')" disabled>
+                    <span class="invisible">S'être rendu au moins 5 fois au centre galactique (sagitarius a*)</span>
+                </td>
+                <td class="tier3 locked">
+                    <input type="checkbox" id="solde135" onclick="validateTier('solde135')" disabled>
+                    <span class="invisible">S'être rendu au moins 10 fois au centre galactique (sagitarius a*)</span>
+                </td>
+            </tr>
+            <tr>
+                <td class="tier1">
+                    <input type="checkbox" id="solde136" onclick="validateTier('solde136', 'solde137')">
+                    S'être rendu au moins 1 fois à Beagle point
+                </td>
+                <td class="tier2 locked">
+                    <input type="checkbox" id="solde137" onclick="validateTier('solde137', 'solde138')" disabled>
+                    <span class="invisible">S'être rendu au moins 5 fois à Beagle point</span>
+                </td>
+                <td class="tier3 locked">
+                    <input type="checkbox" id="solde138" onclick="validateTier('solde138')" disabled>
+                    <span class="invisible">S'être rendu au moins 10 fois à Beagle point</span>
+                </td>
+            </tr>
+        </table>
+        <!-- Bouton depliable/repliable pour la section Passagers -->
+        <button class="toggle-button" onclick="toggleTable('table-passagers')">Catégorie "Passagers"</button>
+        <table id="table-passagers">
+            <!-- Solde section -->
+            <tr class="category-header">
+                <th colspan="3">Passagers</th>
+            </tr>
+            <tr>
+                <th>Tier 1</th>
+                <th>Tier 2</th>
+                <th>Tier 3</th>
+            </tr>
+            <tr>
+                <td class="tier1">
+                    <input type="checkbox" id="solde139" onclick="validateTier('solde139', 'solde140')">
+                    Avoir accepté au moins 250 missions de passagers
+                </td>
+                <td class="tier2 locked">
+                    <input type="checkbox" id="solde140" onclick="validateTier('solde140', 'solde141')" disabled>
+                    <span class="invisible">Avoir accepté au moins 500 missions de passagers</span>
+                </td>
+                <td class="tier3 locked">
+                    <input type="checkbox" id="solde141" onclick="validateTier('solde141')" disabled>
+                    <span class="invisible">Avoir accepté au moins 1000 missions de passagers</span>
+                </td>
+            </tr>
+            <tr>
+                <td class="tier1">
+                    <input type="checkbox" id="solde142" onclick="validateTier('solde142', 'solde143')">
+                    Avoir transporté au moins 500 personnalités vip
+                </td>
+                <td class="tier2 locked">
+                    <input type="checkbox" id="solde143" onclick="validateTier('solde143', 'solde144')" disabled>
+                    <span class="invisible">Avoir transporté au moins 1000 personnalités vip</span>
+                </td>
+                <td class="tier3 locked">
+                    <input type="checkbox" id="solde144" onclick="validateTier('solde144')" disabled>
+                    <span class="invisible">Avoir transporté au moins 5000 personnalités vip</span>
+                </td>
+            </tr>
+        </table>
+        <!-- Bouton depliable/repliable pour la section Combat Xénomorphe -->
+        <button class="toggle-button" onclick="toggleTable('table-xénomorphe')">Catégorie "Combat Xénomorphe"</button>
+        <table id="table-xénomorphe">
+            <!-- Solde section -->
+            <tr class="category-header">
+                <th colspan="3">Combat Xénomorphe</th>
+            </tr>
+            <tr>
+                <th>Tier 1</th>
+                <th>Tier 2</th>
+                <th>Tier 3</th>
+            </tr>
+            <tr>
+                <td class="tier1">
+                    <input type="checkbox" id="solde145" onclick="validateTier('solde145', 'solde146')">
+                    Avoir detruit au moins 50 scouts thargoïds
+                </td>
+                <td class="tier2 locked">
+                    <input type="checkbox" id="solde146" onclick="validateTier('solde146', 'solde147')" disabled>
+                    <span class="invisible">Avoir detruit au moins 100 scouts thargoïds</span>
+                </td>
+                <td class="tier3 locked">
+                    <input type="checkbox" id="solde147" onclick="validateTier('solde147')" disabled>
+                    <span class="invisible">Avoir detruit au moins 500 scouts thargoïds</span>
+                </td>
+            </tr>
+            <tr>
+                <td class="tier1">
+                    <input type="checkbox" id="solde148" onclick="validateTier('solde148', 'solde149')">
+                    Avoir détruit 1 intercepteur thargoïd type cyclops
+                </td>
+                <td class="tier2 locked">
+                    <input type="checkbox" id="solde149" onclick="validateTier('solde149', 'solde150')" disabled>
+                    <span class="invisible">Avoir détruit 50 intercepteurs thargoïds type cyclops</span>
+                </td>
+                <td class="tier3 locked">
+                    <input type="checkbox" id="solde150" onclick="validateTier('solde150')" disabled>
+                    <span class="invisible">Avoir détruit 100 intercepteurs thargoïds type cyclops</span>
+                </td>
+            </tr>
+            <tr>
+                <td class="tier1">
+                    <input type="checkbox" id="solde151" onclick="validateTier('solde151', 'solde152')">
+                    Avoir détruit 1 intercepteur thargoïd type basilisk
+                </td>
+                <td class="tier2 locked">
+                    <input type="checkbox" id="solde152" onclick="validateTier('solde152', 'solde153')" disabled>
+                    <span class="invisible">Avoir détruit 50 intercepteurs thargoïds type basilisk</span>
+                </td>
+                <td class="tier3 locked">
+                    <input type="checkbox" id="solde153" onclick="validateTier('solde153')" disabled>
+                    <span class="invisible">Avoir détruit 100 intercepteurs thargoïds type basilisk</span>
+                </td>
+            </tr>
+            <tr>
+                <td class="tier1">
+                    <input type="checkbox" id="solde154" onclick="validateTier('solde154', 'solde155')">
+                    Avoir détruit 1 intercepteur thargoïd type medusa
+                </td>
+                <td class="tier2 locked">
+                    <input type="checkbox" id="solde155" onclick="validateTier('solde155', 'solde156')" disabled>
+                    <span class="invisible">Avoir détruit 50 intercepteurs thargoïds type medusa</span>
+                </td>
+                <td class="tier3 locked">
+                    <input type="checkbox" id="solde156" onclick="validateTier('solde156')" disabled>
+                    <span class="invisible">Avoir détruit 100 intercepteurs thargoïds type medusa</span>
+                </td>
+            </tr>
+            <tr>
+                <td class="tier1">
+                    <input type="checkbox" id="solde157" onclick="validateTier('solde157', 'solde158')">
+                    Avoir détruit 1 intercepteur thargoïd type hydra
+                </td>
+                <td class="tier2 locked">
+                    <input type="checkbox" id="solde158" onclick="validateTier('solde158', 'solde159')" disabled>
+                    <span class="invisible">Avoir détruit 50 intercepteurs thargoïds type hydra</span>
+                </td>
+                <td class="tier3 locked">
+                    <input type="checkbox" id="solde159" onclick="validateTier('solde159')" disabled>
+                    <span class="invisible">Avoir détruit 100 intercepteurs thargoïds type hydra</span>
+                </td>
+            </tr>
+            <tr>
+                <td class="tier1">
+                    <input type="checkbox" id="solde160" onclick="validateTier('solde160', 'solde161')">
+                    Avoir détruit 1 intercepteur thargoïd type Glaive
+                </td>
+                <td class="tier2 locked">
+                    <input type="checkbox" id="solde161" onclick="validateTier('solde161', 'solde162')" disabled>
+                    <span class="invisible">Avoir détruit 50 intercepteurs thargoïds type Glaive</span>
+                </td>
+                <td class="tier3 locked">
+                    <input type="checkbox" id="solde162" onclick="validateTier('solde162')" disabled>
+                    <span class="invisible">Avoir détruit 100 intercepteurs thargoïds type Glaive</span>
+                </td>
+            </tr>
+            <tr>
+                <td class="tier1">
+                    <input type="checkbox" id="solde160" onclick="validateTier('solde160', 'solde161')">
+                    Avoir détruit 1 titan thargoïd
+                </td>
+                <td class="tier2 locked">
+                    <input type="checkbox" id="solde161" onclick="validateTier('solde161', 'solde162')" disabled>
+                    <span class="invisible">Avoir détruit 2 titans thargoïds</span>
+                </td>
+                <td class="tier3 locked">
+                    <input type="checkbox" id="solde162" onclick="validateTier('solde162')" disabled>
+                    <span class="invisible">Avoir détruit 5 titan thargoïds</span>
+                </td>
+            </tr>
+        </table>
+        <!-- Bouton depliable/repliable pour la section Ingénieurs -->
+        <button class="toggle-button" onclick="toggleTable('table-ingénieurs')">Catégorie "Ingénieurs"</button>
+        <table id="table-ingénieurs">
+            <!-- Solde section -->
+            <tr class="category-header">
+                <th colspan="3">Ingénieurs</th>
+            </tr>
+            <tr>
+                <th>Tier 1</th>
+                <th>Tier 2</th>
+                <th>Tier 3</th>
+            </tr>
+            <tr>
+                <td class="tier1">
+                    <input type="checkbox" id="solde163" onclick="validateTier('solde163', 'solde164')">
+                    Avoir débloqué 3 ingénieurs vaisseau
+                </td>
+                <td class="tier2 locked">
+                    <input type="checkbox" id="solde164" onclick="validateTier('solde164', 'solde165')" disabled>
+                    <span class="invisible">Avoir débloqué 10 ingénieurs vaisseau</span>
+                </td>
+                <td class="tier3 locked">
+                    <input type="checkbox" id="solde165" onclick="validateTier('solde165')" disabled>
+                    <span class="invisible">Avoir débloqué tous les ingénieurs vaisseau</span>
+                </td>
+            </tr>
+            <tr>
+                <td class="tier1">
+                    <input type="checkbox" id="solde166" onclick="validateTier('solde166', 'solde167')">
+                    Avoir débloqué 3 ingénieurs équipement personnel
+                </td>
+                <td class="tier2 locked">
+                    <input type="checkbox" id="solde167" onclick="validateTier('solde167', 'solde168')" disabled>
+                    <span class="invisible">Avoir débloqué 5 ingénieurs équipement personnel</span>
+                </td>
+                <td class="tier3 locked">
+                    <input type="checkbox" id="solde168" onclick="validateTier('solde168')" disabled>
+                    <span class="invisible">Avoir débloqué tous les ingénieurs équipement personnel</span>
+                </td>
+            </tr>
+            <tr>
+                <td class="tier1">
+                    <input type="checkbox" id="solde169" onclick="validateTier('solde169', 'solde170')">
+                    Avoir généré au moins 500 modifications de niveau 1
+                </td>
+                <td class="tier2 locked">
+                    <input type="checkbox" id="solde170" onclick="validateTier('solde170', 'solde171')" disabled>
+                    <span class="invisible">Avoir généré au moins 1000 modifications de niveau 1</span>
+                </td>
+                <td class="tier3 locked">
+                    <input type="checkbox" id="solde171" onclick="validateTier('solde171')" disabled>
+                    <span class="invisible">Avoir généré au moins 5000 modifications de niveau 1</span>
+                </td>
+            </tr>
+            <tr>
+                <td class="tier1">
+                    <input type="checkbox" id="solde172" onclick="validateTier('solde172', 'solde173')">
+                    Avoir généré au moins 400 modifications de niveau 2
+                </td>
+                <td class="tier2 locked">
+                    <input type="checkbox" id="solde173" onclick="validateTier('solde173', 'solde174')" disabled>
+                    <span class="invisible">Avoir généré au moins 800 modifications de niveau 2</span>
+                </td>
+                <td class="tier3 locked">
+                    <input type="checkbox" id="solde174" onclick="validateTier('solde174')" disabled>
+                    <span class="invisible">Avoir généré au moins 4000 modifications de niveau 2</span>
+                </td>
+            </tr>
+            <tr>
+                <td class="tier1">
+                    <input type="checkbox" id="solde175" onclick="validateTier('solde175', 'solde176')">
+                    Avoir généré au moins 300 modifications de niveau 3
+                </td>
+                <td class="tier2 locked">
+                    <input type="checkbox" id="solde176" onclick="validateTier('solde176', 'solde177')" disabled>
+                    <span class="invisible">Avoir généré au moins 600 modifications de niveau 3</span>
+                </td>
+                <td class="tier3 locked">
+                    <input type="checkbox" id="solde177" onclick="validateTier('solde177')" disabled>
+                    <span class="invisible">Avoir généré au moins 3000 modifications de niveau 3</span>
+                </td>
+            </tr>
+            <tr>
+                <td class="tier1">
+                    <input type="checkbox" id="solde178" onclick="validateTier('solde178', 'solde179')">
+                    Avoir généré au moins 200 modifications de niveau 4
+                </td>
+                <td class="tier2 locked">
+                    <input type="checkbox" id="solde179" onclick="validateTier('solde179', 'solde180')" disabled>
+                    <span class="invisible">Avoir généré au moins 400 modifications de niveau 4</span>
+                </td>
+                <td class="tier3 locked">
+                    <input type="checkbox" id="solde180" onclick="validateTier('solde180')" disabled>
+                    <span class="invisible">Avoir généré au moins 2000 modifications de niveau 4</span>
+                </td>
+            </tr>
+            <tr>
+                <td class="tier1">
+                    <input type="checkbox" id="solde181" onclick="validateTier('solde181', 'solde182')">
+                    Avoir généré au moins 100 modifications de niveau 5
+                </td>
+                <td class="tier2 locked">
+                    <input type="checkbox" id="solde182" onclick="validateTier('solde182', 'solde183')" disabled>
+                    <span class="invisible">Avoir généré au moins 200 modifications de niveau 5</span>
+                </td>
+                <td class="tier3 locked">
+                    <input type="checkbox" id="solde183" onclick="validateTier('solde183')" disabled>
+                    <span class="invisible">Avoir généré au moins 1000 modifications de niveau 5</span>
+                </td>
+            </tr>
+            <tr>
+                <td class="tier1">
+                    <input type="checkbox" id="solde184" onclick="validateTier('solde184', 'solde185')">
+                    Avoir installé au moins 10 améliorations de combinaison
+                </td>
+                <td class="tier2 locked">
+                    <input type="checkbox" id="solde185" onclick="validateTier('solde185', 'solde186')" disabled>
+                    <span class="invisible">Avoir installé au moins 50 améliorations de combinaison</span>
+                </td>
+                <td class="tier3 locked">
+                    <input type="checkbox" id="solde186" onclick="validateTier('solde186')" disabled>
+                    <span class="invisible">Avoir installé au moins 100 améliorations de combinaison</span>
+                </td>
+            </tr>
+            <tr>
+                <td class="tier1">
+                    <input type="checkbox" id="solde187" onclick="validateTier('solde187', 'solde188')">
+                    Avoir installé au moins 10 améliorations d'arme
+                </td>
+                <td class="tier2 locked">
+                    <input type="checkbox" id="solde188" onclick="validateTier('solde188', 'solde189')" disabled>
+                    <span class="invisible">Avoir installé au moins 50 améliorations d'arme</span>
+                </td>
+                <td class="tier3 locked">
+                    <input type="checkbox" id="solde189" onclick="validateTier('solde189')" disabled>
+                    <span class="invisible">Avoir installé au moins 100 améliorations d'arme</span>
+                </td>
+            </tr>
+        </table>
+        <!-- Bouton depliable/repliable pour la section Exobiologie -->
+        <button class="toggle-button" onclick="toggleTable('table-Exobiologie')">Catégorie "Exobiologie"</button>
+        <table id="table-Exobiologie">
+            <!-- Solde section -->
+            <tr class="category-header">
+                <th colspan="3">Exobiologie</th>
+            </tr>
+            <tr>
+                <th>Tier 1</th>
+                <th>Tier 2</th>
+                <th>Tier 3</th>
+            </tr>
+            <tr>
+                <td class="tier1">
+                    <input type="checkbox" id="solde190" onclick="validateTier('solde190', 'solde191')">
+                    Avoir découvert au moins 15 genres uniques
+                </td>
+                <td class="tier2 locked">
+                    <input type="checkbox" id="solde191" onclick="validateTier('solde191', 'solde192')" disabled>
+                    <span class="invisible">Avoir découvert au moins 30 genres uniques</span>
+                </td>
+                <td class="tier3 locked">
+                    <input type="checkbox" id="solde192" onclick="validateTier('solde192')" disabled>
+                    <span class="invisible">Avoir découvert au moins 50 genres uniques</span>
+                </td>
+            </tr>
+            <tr>
+                <td class="tier1">
+                    <input type="checkbox" id="solde193" onclick="validateTier('solde193', 'solde194')">
+                    Avoir découvert au moins 20 espèces uniques
+                </td>
+                <td class="tier2 locked">
+                    <input type="checkbox" id="solde194" onclick="validateTier('solde194', 'solde195')" disabled>
+                    <span class="invisible">Avoir découvert au moins 50 espèces uniques</span>
+                </td>
+                <td class="tier3 locked">
+                    <input type="checkbox" id="solde195" onclick="validateTier('solde195')" disabled>
+                    <span class="invisible">Avoir découvert au moins 100 espèces uniques</span>
+                </td>
+            </tr>
+            <tr>
+                <td class="tier1">
+                    <input type="checkbox" id="solde196" onclick="validateTier('solde196', 'solde197')">
+                    Avoir découvert au moins 50 variantes uniques
+                </td>
+                <td class="tier2 locked">
+                    <input type="checkbox" id="solde197" onclick="validateTier('solde197', 'solde198')" disabled>
+                    <span class="invisible">Avoir découvert au moins 100 variantes uniques</span>
+                </td>
+                <td class="tier3 locked">
+                    <input type="checkbox" id="solde198" onclick="validateTier('solde198')" disabled>
+                    <span class="invisible">Avoir découvert au moins 200 variantes uniques</span>
+                </td>
+            </tr>
+            <tr>
+                <td class="tier1">
+                    <input type="checkbox" id="solde199" onclick="validateTier('solde199', 'solde200')">
+                    Avoir réalisé un bénéfice d'au moins 1,000,000,000 cr en exobiologie
+                </td>
+                <td class="tier2 locked">
+                    <input type="checkbox" id="solde200" onclick="validateTier('solde200', 'solde201')" disabled>
+                    <span class="invisible">Avoir réalisé un bénéfice d'au moins 2,000,000,000 cr en exobiologie</span>
+                </td>
+                <td class="tier3 locked">
+                    <input type="checkbox" id="solde201" onclick="validateTier('solde201')" disabled>
+                    <span class="invisible">Avoir réalisé un bénéfice d'au moins 5,000,000,000 cr en exobiologie</span>
+                </td>
+            </tr>
+            <tr>
+                <td class="tier1">
+                    <input type="checkbox" id="solde202" onclick="validateTier('solde202', 'solde203')">
+                    Avoir enregistré au moins 50 données organiques
+                </td>
+                <td class="tier2 locked">
+                    <input type="checkbox" id="solde203" onclick="validateTier('solde203', 'solde204')" disabled>
+                    <span class="invisible">Avoir enregistré au moins 100 données organiques</span>
+                </td>
+                <td class="tier3 locked">
+                    <input type="checkbox" id="solde204" onclick="validateTier('solde204')" disabled>
+                    <span class="invisible">Avoir enregistré au moins 500 données organiques</span>
+                </td>
+            </tr>
+        </table>
+        <!-- Nouveau tableau avec cases à cocher -->
+        <h1>Rangs</h1>
+
+        <!-- Bouton depliable/repliable pour la section Rangs de Combat -->
+        <button class="toggle-button" onclick="toggleTable('table-RangsCombat')">Catégorie "RANGS de Combat"</button>
+        <table id="table-RangsCombat">
+            <!-- Solde section -->
+            <tr class="category-header">
+                <th colspan="14">Rangs de Combat</th>
+            </tr>
+            <tr>
+                <th style="font-size: 20px";>Innofensif</th>
+                <th style="font-size: 20px";>Bleu</th>
+                <th style="font-size: 20px";>Novice</th>
+                <th style="font-size: 20px";>Compétent</th>
+                <th style="font-size: 20px";>Expert</th>
+                <th style="font-size: 20px";>Maître</th>
+                <th style="font-size: 20px";>Vétéran</th>
+                <th style="font-size: 20px";>Létal</th>
+                <th style="font-size: 20px";>Elite</th>
+                <th style="font-size: 20px";>Elite I</th>
+                <th style="font-size: 20px";>Elite II</th>
+                <th style="font-size: 20px";>Elite III</th>
+                <th style="font-size: 20px";>Elite IV</th>
+                <th style="font-size: 20px";>Elite V</th>
+            </tr>
+            <tr>
+                <td class="Innofensif">
+                    <div style="text-align: center; width: 100px; height: 150px; display: flex; flex-direction: column; align-items: center; justify-content: center;">
+                        <img src="https://i.imgur.com/uCrSiUz.png" style="max-width: 100px;">
+                        <input type="checkbox" id="combat205" onclick="validateTier('combat205', 'combat206')">
+                    </div>
+                </td>
+                <td class="Bleu">
+                    <div style="text-align: center; width: 100px; height: 150px; display: flex; flex-direction: column; align-items: center; justify-content: center;">
+                        <img src="https://i.imgur.com/rwVd52N.png" style="max-width: 100px;">
+                        <input type="checkbox" id="combat206" onclick="validateTier('combat206', 'combat207')" disabled>
+                    </div>
+                </td>
+                <td class="Novice">
+                    <div style="text-align: center; width: 100px; height: 150px; display: flex; flex-direction: column; align-items: center; justify-content: center;">
+                        <img src="https://i.imgur.com/Ro2AlWf.png" style="max-width: 100px;">
+                    <input type="checkbox" id="combat207" onclick="validateTier('combat207', 'combat208')" disabled>
+                    </div>
+                </td>
+                <td class="Compétent">
+                    <div style="text-align: center; width: 100px; height: 150px; display: flex; flex-direction: column; align-items: center; justify-content: center;">
+                        <img src="https://i.imgur.com/Ag1M7JF.png" style="max-width: 100px;">
+                    <input type="checkbox" id="combat208" onclick="validateTier('combat208', 'solde209')" disabled>
+                    </div>
+                </td>
+                <td class="Expert">
+                    <div style="text-align: center; width: 100px; height: 150px; display: flex; flex-direction: column; align-items: center; justify-content: center;">
+                        <img src="https://i.imgur.com/7ciZxym.png" style="max-width: 100px;">
+                    <input type="checkbox" id="solde209" onclick="validateTier('solde209', 'solde210')" disabled>
+                    </div>
+                </td>
+                <td class="Maître">
+                    <div style="text-align: center; width: 100px; height: 150px; display: flex; flex-direction: column; align-items: center; justify-content: center;">
+                        <img src="https://i.imgur.com/gpS6E9g.png" style="max-width: 100px;">
+                    <input type="checkbox" id="solde210" onclick="validateTier('solde210', 'solde211')" disabled>
+                    </div>
+                </td>
+                <td class="Vétéran">
+                    <div style="text-align: center; width: 100px; height: 150px; display: flex; flex-direction: column; align-items: center; justify-content: center;">
+                        <img src="https://i.imgur.com/TKyZHhZ.png" style="max-width: 100px;">
+                    <input type="checkbox" id="solde211" onclick="validateTier('solde211', 'solde212')" disabled>
+                    </div>
+                </td>
+                <td class="Létal">
+                    <div style="text-align: center; width: 100px; height: 150px; display: flex; flex-direction: column; align-items: center; justify-content: center;">
+                        <img src="https://i.imgur.com/hwIPg7S.png" style="max-width: 100px;">
+                    <input type="checkbox" id="solde212" onclick="validateTier('solde212', 'solde213')" disabled>
+                    </div>
+                </td>
+                <td class="Elite">
+                    <div style="text-align: center; width: 100px; height: 150px; display: flex; flex-direction: column; align-items: center; justify-content: center;">
+                        <img src="https://i.imgur.com/uLatbd6.png" style="max-width: 100px;">
+                    <input type="checkbox" id="solde213" onclick="validateTier('solde213', 'solde214')" disabled>
+                    </div>
+                </td>
+                <td class="Elite I">
+                    <div style="text-align: center; width: 100px; height: 150px; display: flex; flex-direction: column; align-items: center; justify-content: center;">
+                        <img src="https://i.imgur.com/8OdPnqO.png" style="max-width: 100px;">
+                    <input type="checkbox" id="solde214" onclick="validateTier('solde214', 'solde215')" disabled>
+                    </div>
+                </td>
+                <td class="Elite II">
+                    <div style="text-align: center; width: 100px; height: 150px; display: flex; flex-direction: column; align-items: center; justify-content: center;">
+                        <img src="https://i.imgur.com/fDtKsUZ.png" style="max-width: 100px;">
+                    <input type="checkbox" id="solde215" onclick="validateTier('solde215', 'solde216')" disabled>
+                    </div>
+                </td>
+                <td class="Elite III">
+                    <div style="text-align: center; width: 100px; height: 150px; display: flex; flex-direction: column; align-items: center; justify-content: center;">
+                        <img src="https://i.imgur.com/bsUi5kd.png" style="max-width: 100px;">
+                    <input type="checkbox" id="solde216" onclick="validateTier('solde216', 'solde217')" disabled>
+                    </div>
+                </td>
+                <td class="Elite Iv">
+                    <div style="text-align: center; width: 100px; height: 150px; display: flex; flex-direction: column; align-items: center; justify-content: center;">
+                        <img src="https://i.imgur.com/K6vQNXy.png" style="max-width: 100px;">
+                    <input type="checkbox" id="solde217" onclick="validateTier('solde217', 'solde218')" disabled>
+                    </div>
+                </td>
+                <td class="Elite V">
+                    <div style="text-align: center; width: 100px; height: 150px; display: flex; flex-direction: column; align-items: center; justify-content: center;">
+                        <img src="https://i.imgur.com/HsULJiL.png" style="max-width: 100px;">
+                    <input type="checkbox" id="solde218" onclick="validateTier('solde218')" disabled>
+                    </div>
+                </td>
+            </tr>
+        </table>
+        <!-- Bouton depliable/repliable pour la section Rangs d'Exploration' -->
+        <button class="toggle-button" onclick="toggleTable('table-RangsExplo')">Catégorie "RANGs d'Exploration"</button>
+        <table id="table-RangsExplo">
+            <!-- Solde section -->
+            <tr class="category-header">
+                <th colspan="14">Rangs d'Exploration</th>
+            </tr>
+            <tr>
+                <th style="font-size: 20px;">Vagabond</th>
+                <th style="font-size: 20px;">Touriste</th>
+                <th style="font-size: 20px;">Voyageur</th>
+                <th style="font-size: 20px;">Eclaireur</th>
+                <th style="font-size: 20px;">Prospecteur</th>
+                <th style="font-size: 20px;">Découvreur</th>
+                <th style="font-size: 20px;">Navigateur</th>
+                <th style="font-size: 20px;">Pionnier</th>
+                <th style="font-size: 20px;">Elite</th>
+                <th style="font-size: 20px;">Elite I</th>
+                <th style="font-size: 20px;">Elite II</th>
+                <th style="font-size: 20px;">Elite III</th>
+                <th style="font-size: 20px;">Elite IV</th>
+                <th style="font-size: 20px;">Elite V</th>
+            </tr>
+            <tr>
+                <td class="Vagabond">
+                    <div style="text-align: center; width: 100px; height: 150px; display: flex; flex-direction: column; align-items: center; justify-content: center;">
+                        <img src="https://i.imgur.com/aDZvAVM.png" style="max-width: 100px;">
+                        <input type="checkbox" id="explo205" onclick="validateTier('explo205', 'explo206')">
+                    </div>
+                </td>
+                <td class="Touriste">
+                    <div style="text-align: center; width: 100px; height: 150px; display: flex; flex-direction: column; align-items: center; justify-content: center;">
+                        <img src="https://i.imgur.com/4ythAi3.png" style="max-width: 100px;">
+                        <input type="checkbox" id="explo206" onclick="validateTier('explo206', 'explo207')" disabled>
+                    </div>
+                </td>
+                <td class="Voyageur">
+                    <div style="text-align: center; width: 100px; height: 150px; display: flex; flex-direction: column; align-items: center; justify-content: center;">
+                        <img src="https://i.imgur.com/hLoHQOG.png" style="max-width: 100px;">
+                    <input type="checkbox" id="explo207" onclick="validateTier('explo207', 'explo208')" disabled>
+                    </div>
+                </td>
+                <td class="Eclaireur">
+                    <div style="text-align: center; width: 100px; height: 150px; display: flex; flex-direction: column; align-items: center; justify-content: center;">
+                        <img src="https://i.imgur.com/cgkLEBp.png" style="max-width: 100px;">
+                    <input type="checkbox" id="explo208" onclick="validateTier('explo208', 'explo209')" disabled>
+                    </div>
+                </td>
+                <td class="Prospecteur">
+                    <div style="text-align: center; width: 100px; height: 150px; display: flex; flex-direction: column; align-items: center; justify-content: center;">
+                        <img src="https://i.imgur.com/cuGLsQt.png" style="max-width: 100px;">
+                    <input type="checkbox" id="explo209" onclick="validateTier('explo209', 'explo210')" disabled>
+                    </div>
+                </td>
+                <td class="Découvreur">
+                    <div style="text-align: center; width: 100px; height: 150px; display: flex; flex-direction: column; align-items: center; justify-content: center;">
+                        <img src="https://i.imgur.com/strW92B.png" style="max-width: 100px;">
+                    <input type="checkbox" id="explo210" onclick="validateTier('explo210', 'explo211')" disabled>
+                    </div>
+                </td>
+                <td class="Navigateur">
+                    <div style="text-align: center; width: 100px; height: 150px; display: flex; flex-direction: column; align-items: center; justify-content: center;">
+                        <img src="https://i.imgur.com/rABV0sr.png" style="max-width: 100px;">
+                    <input type="checkbox" id="explo211" onclick="validateTier('explo211', 'explo212')" disabled>
+                    </div>
+                </td>
+                <td class="Pionnier">
+                    <div style="text-align: center; width: 100px; height: 150px; display: flex; flex-direction: column; align-items: center; justify-content: center;">
+                        <img src="https://i.imgur.com/LpxM4z0.png" style="max-width: 100px;">
+                    <input type="checkbox" id="explo212" onclick="validateTier('explo212', 'explo213')" disabled>
+                    </div>
+                </td>
+                <td class="Elite">
+                    <div style="text-align: center; width: 100px; height: 150px; display: flex; flex-direction: column; align-items: center; justify-content: center;">
+                        <img src="https://i.imgur.com/ub8hz7o.png" style="max-width: 100px;">
+                    <input type="checkbox" id="explo213" onclick="validateTier('explo213', 'explo214')" disabled>
+                    </div>
+                </td>
+                <td class="Elite I">
+                    <div style="text-align: center; width: 100px; height: 150px; display: flex; flex-direction: column; align-items: center; justify-content: center;">
+                        <img src="https://i.imgur.com/xDCT3bU.png" style="max-width: 100px;">
+                    <input type="checkbox" id="explo214" onclick="validateTier('explo214', 'explo215')" disabled>
+                    </div>
+                </td>
+                <td class="Elite II">
+                    <div style="text-align: center; width: 100px; height: 150px; display: flex; flex-direction: column; align-items: center; justify-content: center;">
+                        <img src="https://i.imgur.com/YqAHrVT.png" style="max-width: 100px;">
+                    <input type="checkbox" id="explo215" onclick="validateTier('explo215', 'explo216')" disabled>
+                    </div>
+                </td>
+                <td class="Elite III">
+                    <div style="text-align: center; width: 100px; height: 150px; display: flex; flex-direction: column; align-items: center; justify-content: center;">
+                        <img src="https://i.imgur.com/kIM7tD8.png" style="max-width: 100px;">
+                    <input type="checkbox" id="explo216" onclick="validateTier('explo216', 'explo217')" disabled>
+                    </div>
+                </td>
+                <td class="Elite Iv">
+                    <div style="text-align: center; width: 100px; height: 150px; display: flex; flex-direction: column; align-items: center; justify-content: center;">
+                        <img src="https://i.imgur.com/IleFx8Q.png" style="max-width: 100px;">
+                    <input type="checkbox" id="explo217" onclick="validateTier('explo217', 'explo218')" disabled>
+                    </div>
+                </td>
+                <td class="Elite V">
+                    <div style="text-align: center; width: 100px; height: 150px; display: flex; flex-direction: column; align-items: center; justify-content: center;">
+                        <img src="https://i.imgur.com/HFqBS73.png" style="max-width: 100px;">
+                    <input type="checkbox" id="explo218" onclick="validateTier('explo218')" disabled>
+                    </div>
+                </td>
+            </tr>
+        </table>
+        <!-- Bouton depliable/repliable pour la section Rangs de Commerce' -->
+        <button class="toggle-button" onclick="toggleTable('table-RangsCom')">Catégorie "RANGs de Commerce"</button>
+        <table id="table-RangsCom">
+            <!-- Solde section -->
+            <tr class="category-header">
+                <th colspan="14">Rangs de Commerce</th>
+            </tr>
+            <tr>
+                <th style="font-size: 20px;">Sans-le-sou</th>
+                <th style="font-size: 20px;">Mendiant</th>
+                <th style="font-size: 20px;">Boutiquier</th>
+                <th style="font-size: 20px;">Revendeur</th>
+                <th style="font-size: 20px;">Marchand</th>
+                <th style="font-size: 20px;">Courtier</th>
+                <th style="font-size: 20px;">Entrepreneur</th>
+                <th style="font-size: 20px;">Magnat</th>
+                <th style="font-size: 20px;">Elite</th>
+                <th style="font-size: 20px;">Elite I</th>
+                <th style="font-size: 20px;">Elite II</th>
+                <th style="font-size: 20px;">Elite III</th>
+                <th style="font-size: 20px;">Elite IV</th>
+                <th style="font-size: 20px;">Elite V</th>
+            </tr>
+            <tr>
+                <td class="Sans-le-sou">
+                    <div style="text-align: center; width: 100px; height: 150px; display: flex; flex-direction: column; align-items: center; justify-content: center;">
+                        <img src="https://i.imgur.com/TbIMNUa.png" style="max-width: 100px;">
+                        <input type="checkbox" id="com205" onclick="validateTier('com205', 'com206')">
+                    </div>
+                </td>
+                <td class="Mendiant">
+                    <div style="text-align: center; width: 100px; height: 150px; display: flex; flex-direction: column; align-items: center; justify-content: center;">
+                        <img src="https://i.imgur.com/qIOKSK3.png" style="max-width: 100px;">
+                        <input type="checkbox" id="com206" onclick="validateTier('com206', 'com207')" disabled>
+                    </div>
+                </td>
+                <td class="Boutiquier">
+                    <div style="text-align: center; width: 100px; height: 150px; display: flex; flex-direction: column; align-items: center; justify-content: center;">
+                        <img src="https://i.imgur.com/7bDPvT1.png" style="max-width: 100px;">
+                    <input type="checkbox" id="com207" onclick="validateTier('com207', 'com208')" disabled>
+                    </div>
+                </td>
+                <td class="Revendeur">
+                    <div style="text-align: center; width: 100px; height: 150px; display: flex; flex-direction: column; align-items: center; justify-content: center;">
+                        <img src="https://i.imgur.com/vOUvS37.png" style="max-width: 100px;">
+                    <input type="checkbox" id="com208" onclick="validateTier('com208', 'com209')" disabled>
+                    </div>
+                </td>
+                <td class="Marchand">
+                    <div style="text-align: center; width: 100px; height: 150px; display: flex; flex-direction: column; align-items: center; justify-content: center;">
+                        <img src="https://i.imgur.com/unxKRGj.png" style="max-width: 100px;">
+                    <input type="checkbox" id="com209" onclick="validateTier('com209', 'com210')" disabled>
+                    </div>
+                </td>
+                <td class="Courtier">
+                    <div style="text-align: center; width: 100px; height: 150px; display: flex; flex-direction: column; align-items: center; justify-content: center;">
+                        <img src="https://i.imgur.com/9cFJBOa.png" style="max-width: 100px;">
+                    <input type="checkbox" id="com210" onclick="validateTier('com210', 'com211')" disabled>
+                    </div>
+                </td>
+                <td class="Entrepreneur">
+                    <div style="text-align: center; width: 100px; height: 150px; display: flex; flex-direction: column; align-items: center; justify-content: center;">
+                        <img src="https://i.imgur.com/RL13Kcw.png" style="max-width: 100px;">
+                    <input type="checkbox" id="com211" onclick="validateTier('com211', 'com212')" disabled>
+                    </div>
+                </td>
+                <td class="Magnat">
+                    <div style="text-align: center; width: 100px; height: 150px; display: flex; flex-direction: column; align-items: center; justify-content: center;">
+                        <img src="https://i.imgur.com/Gp6deHA.png" style="max-width: 100px;">
+                    <input type="checkbox" id="com212" onclick="validateTier('com212', 'com213')" disabled>
+                    </div>
+                </td>
+                <td class="Elite">
+                    <div style="text-align: center; width: 100px; height: 150px; display: flex; flex-direction: column; align-items: center; justify-content: center;">
+                        <img src="https://i.imgur.com/na6eaz3.png" style="max-width: 100px;">
+                    <input type="checkbox" id="com213" onclick="validateTier('com213', 'com214')" disabled>
+                    </div>
+                </td>
+                <td class="Elite I">
+                    <div style="text-align: center; width: 100px; height: 150px; display: flex; flex-direction: column; align-items: center; justify-content: center;">
+                        <img src="https://i.imgur.com/QozDumy.png" style="max-width: 100px;">
+                    <input type="checkbox" id="com214" onclick="validateTier('com214', 'com215')" disabled>
+                    </div>
+                </td>
+                <td class="Elite II">
+                    <div style="text-align: center; width: 100px; height: 150px; display: flex; flex-direction: column; align-items: center; justify-content: center;">
+                        <img src="https://i.imgur.com/aIrfqsn.png" style="max-width: 100px;">
+                    <input type="checkbox" id="com215" onclick="validateTier('com215', 'com216')" disabled>
+                    </div>
+                </td>
+                <td class="Elite III">
+                    <div style="text-align: center; width: 100px; height: 150px; display: flex; flex-direction: column; align-items: center; justify-content: center;">
+                        <img src="https://i.imgur.com/i38Fz8Y.png" style="max-width: 100px;">
+                    <input type="checkbox" id="com216" onclick="validateTier('com216', 'com217')" disabled>
+                    </div>
+                </td>
+                <td class="Elite Iv">
+                    <div style="text-align: center; width: 100px; height: 150px; display: flex; flex-direction: column; align-items: center; justify-content: center;">
+                        <img src="https://i.imgur.com/9Tu1EJX.png" style="max-width: 100px;">
+                    <input type="checkbox" id="com217" onclick="validateTier('com217', 'com218')" disabled>
+                    </div>
+                </td>
+                <td class="Elite V">
+                    <div style="text-align: center; width: 100px; height: 150px; display: flex; flex-direction: column; align-items: center; justify-content: center;">
+                        <img src="https://i.imgur.com/o10gXiK.png" style="max-width: 100px;">
+                    <input type="checkbox" id="com218" onclick="validateTier('com218')" disabled>
+                    </div>
+                </td>
+            </tr>
+        </table>
+        <!-- Bouton depliable/repliable pour la section Rangs CQC' -->
+        <button class="toggle-button" onclick="toggleTable('table-RangsCQC')">Catégorie "RANGs CQC"</button>
+        <table id="table-RangsCQC">
+            <!-- Solde section -->
+            <tr class="category-header">
+                <th colspan="14">Rangs CQC</th>
+            </tr>
+            <tr>
+                <th style="font-size: 20px;">Débutant</th>
+                <th style="font-size: 20px;">Novice</th>
+                <th style="font-size: 20px;">Amateur</th>
+                <th style="font-size: 20px;">Semi-Pro</th>
+                <th style="font-size: 20px;">Professionnel</th>
+                <th style="font-size: 20px;">Champion</th>
+                <th style="font-size: 20px;">Héro</th>
+                <th style="font-size: 20px;">Légende</th>
+                <th style="font-size: 20px;">Elite</th>
+                <th style="font-size: 20px;">Elite I</th>
+                <th style="font-size: 20px;">Elite II</th>
+                <th style="font-size: 20px;">Elite III</th>
+                <th style="font-size: 20px;">Elite IV</th>
+                <th style="font-size: 20px;">Elite V</th>
+            </tr>
+            <tr>
+                <td class="Débutant">
+                    <div style="text-align: center; width: 100px; height: 150px; display: flex; flex-direction: column; align-items: center; justify-content: center;">
+                        <img src="https://i.imgur.com/b41t6al.png" style="max-width: 100px;">
+                        <input type="checkbox" id="CQC205" onclick="validateTier('CQC205', 'CQC206')">
+                    </div>
+                </td>
+                <td class="Novice">
+                    <div style="text-align: center; width: 100px; height: 150px; display: flex; flex-direction: column; align-items: center; justify-content: center;">
+                        <img src="https://i.imgur.com/IY0K6m9.png" style="max-width: 100px;">
+                        <input type="checkbox" id="CQC206" onclick="validateTier('CQC206', 'CQC207')" disabled>
+                    </div>
+                </td>
+                <td class="Amateur">
+                    <div style="text-align: center; width: 100px; height: 150px; display: flex; flex-direction: column; align-items: center; justify-content: center;">
+                        <img src="https://i.imgur.com/7plQMZF.png" style="max-width: 100px;">
+                    <input type="checkbox" id="CQC207" onclick="validateTier('CQC207', 'CQC208')" disabled>
+                    </div>
+                </td>
+                <td class="Semi-Pro">
+                    <div style="text-align: center; width: 100px; height: 150px; display: flex; flex-direction: column; align-items: center; justify-content: center;">
+                        <img src="https://i.imgur.com/PINco77.png" style="max-width: 100px;">
+                    <input type="checkbox" id="CQC208" onclick="validateTier('CQC208', 'CQC209')" disabled>
+                    </div>
+                </td>
+                <td class="Professionnel">
+                    <div style="text-align: center; width: 100px; height: 150px; display: flex; flex-direction: column; align-items: center; justify-content: center;">
+                        <img src="https://i.imgur.com/aWOCRwG.png" style="max-width: 100px;">
+                    <input type="checkbox" id="CQC209" onclick="validateTier('CQC209', 'CQC210')" disabled>
+                    </div>
+                </td>
+                <td class="Champion">
+                    <div style="text-align: center; width: 100px; height: 150px; display: flex; flex-direction: column; align-items: center; justify-content: center;">
+                        <img src="https://i.imgur.com/q3fhfr6.pngg" style="max-width: 100px;">
+                    <input type="checkbox" id="CQC210" onclick="validateTier('CQC210', 'CQC211')" disabled>
+                    </div>
+                </td>
+                <td class="Héro">
+                    <div style="text-align: center; width: 100px; height: 150px; display: flex; flex-direction: column; align-items: center; justify-content: center;">
+                        <img src="https://i.imgur.com/hoQEhin.png" style="max-width: 100px;">
+                    <input type="checkbox" id="CQC211" onclick="validateTier('CQC211', 'CQC212')" disabled>
+                    </div>
+                </td>
+                <td class="Légende">
+                    <div style="text-align: center; width: 100px; height: 150px; display: flex; flex-direction: column; align-items: center; justify-content: center;">
+                        <img src="https://i.imgur.com/O0VaSw7.png" style="max-width: 100px;">
+                    <input type="checkbox" id="CQC212" onclick="validateTier('CQC212', 'CQC213')" disabled>
+                    </div>
+                </td>
+                <td class="Elite">
+                    <div style="text-align: center; width: 100px; height: 150px; display: flex; flex-direction: column; align-items: center; justify-content: center;">
+                        <img src="https://i.imgur.com/tnBiXe7.png" style="max-width: 100px;">
+                    <input type="checkbox" id="CQC213" onclick="validateTier('CQC213', 'CQC214')" disabled>
+                    </div>
+                </td>
+                <td class="Elite I">
+                    <div style="text-align: center; width: 100px; height: 150px; display: flex; flex-direction: column; align-items: center; justify-content: center;">
+                        <img src="https://i.imgur.com/Pq9dDlg.png" style="max-width: 100px;">
+                    <input type="checkbox" id="CQC214" onclick="validateTier('CQC214', 'CQC215')" disabled>
+                    </div>
+                </td>
+                <td class="Elite II">
+                    <div style="text-align: center; width: 100px; height: 150px; display: flex; flex-direction: column; align-items: center; justify-content: center;">
+                        <img src="https://i.imgur.com/BBv0Xmz.png" style="max-width: 100px;">
+                    <input type="checkbox" id="CQC215" onclick="validateTier('CQC215', 'CQC216')" disabled>
+                    </div>
+                </td>
+                <td class="Elite III">
+                    <div style="text-align: center; width: 100px; height: 150px; display: flex; flex-direction: column; align-items: center; justify-content: center;">
+                        <img src="https://i.imgur.com/FSuQB6r.png" style="max-width: 100px;">
+                    <input type="checkbox" id="CQC216" onclick="validateTier('CQC216', 'CQC217')" disabled>
+                    </div>
+                </td>
+                <td class="Elite Iv">
+                    <div style="text-align: center; width: 100px; height: 150px; display: flex; flex-direction: column; align-items: center; justify-content: center;">
+                        <img src="https://i.imgur.com/NMq6klQ.png" style="max-width: 100px;">
+                    <input type="checkbox" id="CQC217" onclick="validateTier('CQC217', 'CQC218')" disabled>
+                    </div>
+                </td>
+                <td class="Elite V">
+                    <div style="text-align: center; width: 100px; height: 150px; display: flex; flex-direction: column; align-items: center; justify-content: center;">
+                        <img src="https://i.imgur.com/wvMvnel.png" style="max-width: 100px;">
+                    <input type="checkbox" id="CQC218" onclick="validateTier('CQC218')" disabled>
+                    </div>
+                </td>
+            </tr>
+        </table>
+    </div>
+
+    <div class="main-content">
+        <!-- Ajout de la nouvelle navbar après les tableaux -->
+        <div class="bottom-navbar">
+            <div class="progress-container">
+                <div class="progress-bar" id="bottom-progress-bar"></div>
+                <span class="progress-text" id="bottom-progress-text">0%</span>
+            </div>
+        </div>
+        <!-- Barre de progression -->
+        <div class="progress-container">
+            <div class="progress-bar" id="progress-bar"></div>
+            <span class="progress-text" id="progress-text">0%</span> <!-- Placer le texte à ce niveau -->
+        </div>
+
+    <script>
+        function validateTier(currentTierId, nextTierId) {
+            const currentTier = document.getElementById(currentTierId);
+            const nextTier = document.getElementById(nextTierId);
+
+            if (currentTier.checked) {
+                // Mark current tier as completed
+                currentTier.parentElement.classList.add('completed');
+                
+                // Unlock the next tier checkbox and show text
+                if (nextTier) {
+                    nextTier.disabled = false;
+                    nextTier.parentElement.classList.remove('locked');
+                    nextTier.nextElementSibling.classList.remove('invisible');
+                }
+
+                // Si c'est Tier 3, applique la classe green-checked
+                if (currentTierId.includes('3')) {
+                    currentTier.classList.add('green-checked');
+                }
+            } else {
+                // Remove 'completed' status when unchecked
+                currentTier.parentElement.classList.remove('completed');
+
+                // If the checkbox is unchecked, reset the next tiers and hide text
+                if (nextTier) {
+                    nextTier.checked = false;
+                    nextTier.disabled = true;
+                    nextTier.parentElement.classList.add('locked');
+                    nextTier.nextElementSibling.classList.add('invisible');
+                }
+
+                // Enlève la classe green-checked si décochée
+                if (currentTierId.includes('3')) {
+                    currentTier.classList.remove('green-checked');
+                }
+            }
+        }
+    </script>
+    <script>
+        // Fonction pour mettre à jour la barre de progression
+        function updateProgressBar() {
+            const checkboxes = document.querySelectorAll('input[type="checkbox"]');
+            const checkedBoxes = document.querySelectorAll('input[type="checkbox"]:checked');
+            const progressBarTop = document.getElementById('progress-bar');
+            const progressTextTop = document.getElementById('progress-text');
+            const progressBarBottom = document.getElementById('bottom-progress-bar');
+            const progressTextBottom = document.getElementById('bottom-progress-text');
+    
+            const totalCheckboxes = checkboxes.length;
+            const checkedCount = checkedBoxes.length;
+    
+            const progressPercentage = (checkedCount / totalCheckboxes) * 100;
+    
+            progressBarTop.style.width = progressPercentage + '%';
+            progressTextTop.textContent = Math.round(progressPercentage) + '%'; // Mise à jour du texte en haut
+    
+            progressBarBottom.style.width = progressPercentage + '%';
+            progressTextBottom.textContent = Math.round(progressPercentage) + '%'; // Mise à jour du texte en bas
+        }
+    
+        let totalPoints = 0; // Variable globale pour stocker le total des points
+
+function validateTier(currentTierId, nextTierId) {
+    const currentTier = document.getElementById(currentTierId);
+    const nextTier = document.getElementById(nextTierId);
+    const points = parseInt(currentTier.getAttribute('data-points')); // Récupère les points de la case actuelle
+
+    if (currentTier.checked) {
+        // Ajoute les points de la case cochée
+        totalPoints += points;
+        
+        // Mark current tier as completed
+        currentTier.parentElement.classList.add('completed');
+        
+        // Unlock the next tier checkbox and show text
+        if (nextTier) {
+            nextTier.disabled = false;
+            nextTier.parentElement.classList.remove('locked');
+            nextTier.nextElementSibling.classList.remove('invisible');
+        }
+    } else {
+        // Soustrait les points si la case est décochée
+        totalPoints -= points;
+
+        // Remove 'completed' status when unchecked
+        currentTier.parentElement.classList.remove('completed');
+
+        // Reset next tier if unchecked
+        if (nextTier) {
+            nextTier.checked = false;
+            nextTier.disabled = true;
+            nextTier.parentElement.classList.add('locked');
+            nextTier.nextElementSibling.classList.add('invisible');
+        }
+    }
+
+    // Mettre à jour la barre de progression et afficher les points
+    updateProgressBar();
+    console.log("Total Points: " + totalPoints); // Affiche le total des points dans la console (ou utilise cette valeur ailleurs)
+}
+        function toggleTable(tableId) {
+            const table = document.getElementById(tableId);
+            if (table.style.display === "none" || table.style.display === "") {
+                table.style.display = "table";
+            } else {
+                table.style.display = "none";
+            }
+        }
+    </script>
+
+</body>
+</html>
+

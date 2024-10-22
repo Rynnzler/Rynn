@@ -1,0 +1,142 @@
+<!DOCTYPE html>
+<html lang="fr">
+<head>
+    <meta charset="UTF-8">
+    <title>Page d'Accueil avec Boutons Images</title>
+    <link href="https://fonts.googleapis.com/css2?family=Bebas+Neue&display=swap" rel="stylesheet"> 
+    <style>
+        body, html {
+            font-family: 'Bebas Neue', sans-serif;
+            color: #ff5e00;
+            margin: 0;
+            padding: 0;
+            width: 100%;
+            height: 100%;
+            display: flex;
+            flex-direction: column;
+            background-image: url('https://i.imgur.com/BwoLRUW.jpg');
+            background-attachment: fixed;
+            background-size: cover;
+            background-position: center;
+            background-repeat: no-repeat;
+            text-shadow: -2px -2px 0 #000000, 2px -2px 0 #000000, -2px 2px 0 #000000, 2px 2px 0 #000000;
+        }
+
+        .navbar {
+            display: flex;
+            justify-content: space-around;
+            align-items: center;
+            width: 100%;
+            background-image: url(https://i.imgur.com/gb8A6Hr.jpg);
+            background-size: cover;
+            background-position: center;
+            background-color: #333;
+            position: fixed;
+            top: 0;
+            left: 0;
+            padding: 10px 0;
+            border-bottom: 3px solid #ff5e00;
+            z-index: 1000;
+        }
+
+        .navbar img:hover {
+            /* Effets de survol, par exemple: */
+            transform: scale(1.1);
+            transition: transform 0.3s ease;
+        }
+
+        .main-content {
+            display: flex;
+            flex-wrap: wrap;
+            justify-content: space-between;
+            padding-top: 270px;
+            margin: 0 auto;
+            max-width: 450px; /* Ajustez selon la largeur souhaitée */
+        }
+
+        .button-column {
+            width: 1%; /* Ajusté pour inclure la marge */
+            margin: 1 1%; /* Petite marge entre les colonnes */
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            justify-content: flex-start;
+        }
+
+        
+        .button-column img:hover {
+            transform: scale(1.05); /* Léger agrandissement au survol, ajustez selon les préférences */
+        }
+
+        .button-column img {
+            width: 400px; /* Réduit la largeur des boutons */
+            height: auto; /* Conserve le ratio hauteur/largeur des images */
+            transition: transform 0.3s ease; /* Animation douce pour l'effet de survol, si désiré */
+        }
+
+        .button {
+            cursor: pointer;
+            transition: transform 0.3s ease;
+        }
+
+        .button:hover {
+            transform: scale(1.1);
+        }
+
+        .left-buttons {
+            position: fixed; /* Garde les boutons à la même place lors du défilement */
+            top: 50%; /* Les positionne au milieu de la hauteur de la fenêtre */
+            left: 10px; /* Décale légèrement les boutons de la gauche de l'écran */
+            transform: translateY(-50%); /* Centre les boutons verticalement par rapport à leur point médian */
+            z-index: 1001; /* S'assure qu'ils restent au-dessus des autres éléments */
+        }
+
+        .left-buttons a {
+            display: block; /* Fait en sorte que chaque lien s'affiche en bloc, alignant les images verticalement */
+            margin-bottom: 10px; /* Espacement vertical entre les boutons */
+        }
+
+        .left-buttons img {
+            width: 150px; /* Taille des boutons */
+            transition: transform 0.3s ease; /* Animation douce pour l'effet de survol */
+        }
+
+        .left-buttons img:hover {
+            transform: scale(1.1); /* Agrandit légèrement le bouton au survol */
+        }
+
+    </style>
+</head>
+<body> 
+
+<div class="navbar">
+    <a href="Untitled-2.html"><img src="https://i.imgur.com/qSIUdoa.png" alt="Accueil" onmouseover="this.src='https://i.imgur.com/eTJ4Czl.png';" onmouseout="this.src='https://i.imgur.com/qSIUdoa.png';"></a>
+    <a href="membres.html"><img src="https://i.imgur.com/LoXJ9Mm.png" alt="Membres" onmouseover="this.src='https://i.imgur.com/m3Fl9eq.png';" onmouseout="this.src='https://i.imgur.com/LoXJ9Mm.png';"></a>
+    <a href="Grades.html"><img src="https://i.imgur.com/2PKWJiJ.png" alt="Grades" onmouseover="this.src='https://i.imgur.com/60vPKEA.png';" onmouseout="this.src='https://i.imgur.com/2PKWJiJ.png';"></a>
+    <a href="Médailles.html"><img src="https://i.imgur.com/kzZrU05.png" alt="Médailles" onmouseover="this.src='https://i.imgur.com/4beZ6fQ.png';" onmouseout="this.src='https://i.imgur.com/kzZrU05.png';"></a>
+    <a href="Données.html"><img src="https://i.imgur.com/yeQwmjM.png" alt="Données" onmouseover="this.src='https://i.imgur.com/yeQwmjM.png';" onmouseout="this.src='https://i.imgur.com/yeQwmjM.png';"></a>
+</div>
+
+<div class="main-content">
+    <div class="button-column">
+        <a href="Page3.html"><img src="https://i.imgur.com/rAxksg7.png" alt="Ingénieurs Vaisseaux" onmouseover="this.src='https://i.imgur.com/qG28sjG.png';" onmouseout="this.src='https://i.imgur.com/rAxksg7.png';"></a>
+        <a href="Page3.html"><img src="https://i.imgur.com/bavTtha.png" alt="Ingénieurs Equipement" onmouseover="this.src='https://i.imgur.com/qViyCNj.png';" onmouseout="this.src='https://i.imgur.com/bavTtha.png';"></a>
+    </div>
+
+    <div class="button-column">
+        <a href="Elements vaisseaux.html"><img src="https://i.imgur.com/Hz26PN5.png" alt="Modifications Vaisseaux" onmouseover="this.src='https://i.imgur.com/8X9RUVH.png';" onmouseout="this.src='https://i.imgur.com/Hz26PN5.png';"></a>
+        <a href="Page3.html"><img src="https://i.imgur.com/4lRKT7g.png" alt="Modifications Equipement" onmouseover="this.src='https://i.imgur.com/Jl4WrWj.png';" onmouseout="this.src='https://i.imgur.com/4lRKT7g.png';"></a>
+    </div>
+</div>
+
+<div class="left-buttons">
+    <a href="Coriolis.html"><img src="https://i.imgur.com/xq8p8Li.png" alt="Coriolis" onmouseover="this.src='https://i.imgur.com/qdZcHbn.png';" onmouseout="this.src='https://i.imgur.com/xq8p8Li.png';"></a>
+    <a href="Spansh.html"><img src="https://i.imgur.com/wG2dv0j.png" alt="Spansh" onmouseover="this.src='https://i.imgur.com/ZteiJXg.png';" onmouseout="this.src='https://i.imgur.com/wG2dv0j.png';"></a>
+    <a href="OGM.html"><img src="https://i.imgur.com/hSwCpNL.png" alt="OGM" onmouseover="this.src='https://i.imgur.com/vit5xZA.png';" onmouseout="this.src='https://i.imgur.com/hSwCpNL.png';"></a>
+    <a href="Canonn.html"><img src="https://i.imgur.com/cUGEzSv.png" alt="Canonn" onmouseover="this.src='https://i.imgur.com/KMIPfe4.png';" onmouseout="this.src='https://i.imgur.com/cUGEzSv.png';"></a>
+    <a href="HUD.html"><img src="https://i.imgur.com/smiWamI.png" alt="Color HUD" onmouseover="this.src='https://i.imgur.com/pWYrOjF.png';" onmouseout="this.src='https://i.imgur.com/smiWamI.png';"></a>
+    <a href=""><img src="https://i.imgur.com/aa20aAu.png" alt="Ingénieurs" onmouseover="this.src='https://i.imgur.com/aa20aAu.png';" onmouseout="this.src='https://i.imgur.com/aa20aAu.png';"></a>
+</div>
+
+</body>
+</html>

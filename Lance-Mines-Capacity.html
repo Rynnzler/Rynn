@@ -1,0 +1,680 @@
+<!DOCTYPE html>
+<html lang="fr">
+<head>
+    <meta charset="UTF-8">
+    <title>Page d'Accueil avec Boutons Images</title>
+    <link href="https://fonts.googleapis.com/css2?family=Bebas+Neue&display=swap" rel="stylesheet"> 
+    <style>
+        body, html {
+        font-family: 'Bebas Neue', sans-serif;
+        color: #ff5e00;
+        margin: 0;
+        padding: 0;
+        width: 100%;
+        height: 100%;
+        display: flex;
+        flex-direction: column;
+        background-image: url('https://i.imgur.com/BwoLRUW.jpg');
+        background-attachment: fixed;
+        background-size: cover;
+        background-position: center;
+        background-repeat: no-repeat;
+        text-shadow: -2px -2px 0 #000000, 2px -2px 0 #000000, -2px 2px 0 #000000, 2px 2px 0 #000000;
+        }
+
+        .navbar {
+        display: flex;
+        justify-content: space-around;
+        align-items: center;
+        width: 100%;
+        background-image: url(https://i.imgur.com/gb8A6Hr.jpg);
+        background-size: cover;
+        background-position: center;
+        background-color: #333;
+        position: fixed;
+        top: 0;
+        left: 0;
+        padding: 10px 0;
+        border-bottom: 3px solid #ff5e00;
+        z-index: 1000;
+        }
+
+        .main-content {
+        padding-top: 100px; /* Adjusted to account for navbar height */
+        padding-left: 10px;
+        display: flex;
+        flex-direction: column;
+        align-items: left; /* Centers content */
+        width: auto;
+        }
+
+        .blocs-container {
+        display: flex;
+        flex-wrap: wrap; /* Allows items to wrap */
+        justify-content: center; /* Centers containers */
+        align-items: flex-start;
+        }
+
+        .image-text-container {
+        display: flex;
+        flex-direction: column; /* Keeps text below the image */
+        align-items: center; /* Centers items horizontally */
+        text-align: center;
+        margin: 20px;
+        width: 150px; /* Set a fixed width */
+        height: 460px; /* Adjust based on your content */
+        position: relative;
+        overflow: hidden;
+        }
+
+        .default-content, .hover-content {
+        position: absolute;
+        top: 0;
+        left: 0;
+        width: 100%;
+        align-items: center;
+        justify-content: center;
+        transition: top 0.5s ease;
+        }
+
+        .hover-content {
+        top: 100%;
+        }
+
+        .image-text-container:hover .default-content {
+        top: -100%;
+        }
+
+        .image-text-container:hover .hover-content {
+        top: 0;
+        }
+
+        .image {
+        width: 100%; /* Adjust if needed */
+        height: auto;
+        margin-bottom: 10px;
+        }
+
+        .text {
+        font-size: 24px;
+        }
+
+        .textePage {
+        margin-left: 20px;
+        margin-bottom: -100px;
+        padding-top: 60px;
+        font-size: 30px;
+        }
+
+        .button {
+        cursor: pointer;
+        transition: transform 0.3s ease;
+        }
+
+        .button:hover {
+        transform: scale(1.1);
+        }
+
+        .image-crop-container {
+        width: 100px; /* Largeur de la section de l'image que vous voulez montrer */
+        height: 150px; /* Hauteur de la section de l'image que vous voulez montrer */
+        background-image: url('https://i.imgur.com/OABDGX2.png'); /* Remplacez par l'URL de votre image */
+        background-position: 50px -100px; /* Ajustez ces valeurs pour choisir la section de l'image */
+        background-size: 500px 400px; /* Ajustez à la taille originale de l'image ou selon le besoin */
+        background-repeat: no-repeat;
+        }
+
+        .left-buttons {
+            position: fixed; /* Garde les boutons à la même place lors du scroll */
+            top: 50%; /* Centre les boutons verticalement */
+            transform: translateY(-50%); /* Ajuste le centrage vertical */
+            left: 0; /* Position à gauche */
+            padding: 10px; /* Espacement autour des boutons */
+            z-index: 1001; /* S'assure que les boutons soient au-dessus du contenu de la page */
+        }
+
+        .left-buttons a {
+            display: block; /* Affiche chaque lien sur sa propre ligne */
+            margin-bottom: 10px; /* Espacement entre les boutons */
+        }
+
+        .left-buttons img {
+            width: 150px; /* Ajustez selon la taille souhaitée pour vos boutons */
+            transition: transform 0.3s ease; /* Animation au survol */
+        }
+
+        .left-buttons img:hover {
+            transform: scale(1.1); /* Agrandit l'image au survol */
+        }
+
+        .progress-bar-container {
+            width: 700px; /* Réduit la largeur du conteneur à 40% de la largeur de l'écran */
+            height: 430px;
+            margin: auto; /* Centre le conteneur horizontalement */
+            margin-bottom: 30px;
+            padding: 20px; /* Ajustez le padding si nécessaire pour un espacement intérieur */
+            background-color: rgba(128, 128, 128, 0.5); /* Fond gris transparent */
+            display: flex;
+            flex-direction: column;
+            gap: 30px; /* Espacement entre les barres de progression */
+        }
+
+        .progress-bar-container2 {
+            width: 700px; /* Réduit la largeur du conteneur à 40% de la largeur de l'écran */
+            height: 430px;
+            margin: auto; /* Centre le conteneur horizontalement */
+            margin-bottom: 30px;
+            padding: 20px; /* Ajustez le padding si nécessaire pour un espacement intérieur */
+            background-color: rgba(128, 128, 128, 0.5); /* Fond gris transparent */
+            display: flex;
+            flex-direction: column;
+            gap: 30px; /* Espacement entre les barres de progression */
+        }
+
+.progress-bar {
+    position: relative;
+    height: 20px;
+    width: 80%;
+    background-color: #c4c4c4;
+    margin: 10px auto; /* Centrer la barre */
+    border-radius: 0px;
+    border-style: solid ;
+    border-color: #000000;
+    border-width: 2px;
+}
+
+.progress {
+    position: absolute;
+    top: 0;
+    height: 100%;
+    border-radius: 0px;
+}
+
+.cursor {
+    position: absolute;
+    top: 0;
+    width: 2px;
+    height: 100%;
+    background-color: black; /* Curseur noir */
+}
+
+/* Curseur fixe au centre */
+.progress-bar:before {
+    content: '';
+    position: absolute;
+    top: 0;
+    left: 50%;
+    transform: translateX(-50%);
+    width: 2px;
+    height: 100%;
+    background-color: black; /* Curseur central fixe */
+}
+
+.bar-title {
+    position: absolute;
+    top: -40px; /* Déplacez les titres au-dessus de la barre */
+    color: #ff5e00; /* Couleur du texte */
+    font-size: 35px; /* Taille du texte */
+}
+
+.bar-title.left {
+    left: 0;
+}
+
+.bar-title.right {
+    right: 0;
+}
+
+.container-title {
+    text-align: left;
+    font-size: 40px;
+    margin-bottom: 10px;
+    margin-left: 68px;
+    display: flex; /* Utilisez flexbox pour aligner le texte et l'image */
+    align-items: center; /* Centre verticalement le texte et l'image */
+    justify-content: space-between;
+}
+
+.container-title2 {
+    text-align: left;
+    font-size: 40px;
+    margin-bottom: 10px;
+    display: flex; /* Utilisez flexbox pour aligner le texte et l'image */
+    align-items: center; /* Centre verticalement le texte et l'image */
+    justify-content: space-between;
+}
+
+.progress-bar-container-parent {
+    padding-top: 100px; /* Ajustez cette valeur en fonction de la hauteur de votre navbar */
+}
+
+.title-icon {
+    width: 50px; /* Ajustez la largeur selon vos besoins */
+    height: auto; /* Garde le ratio aspect de l'image */
+    margin-right: 68px; /* Espacement entre l'image et le texte */
+}
+
+.title-icon2 {
+    width: 80px; /* Ajustez la largeur selon vos besoins */
+    height: auto; /* Garde le ratio aspect de l'image */
+    margin-right: 68px; /* Espacement entre l'image et le texte */
+}
+
+.title-icon3 {
+    width: 125px; /* Ajustez la largeur selon vos besoins */
+    height: auto; /* Garde le ratio aspect de l'image */
+    margin-right: 68px; /* Espacement entre l'image et le texte */
+}
+
+.title-icon4 {
+    width: 175px; /* Ajustez la largeur selon vos besoins */
+    height: auto; /* Garde le ratio aspect de l'image */
+    margin-right: 68px; /* Espacement entre l'image et le texte */
+}
+
+.title-icon5 {
+    width: 225px; /* Ajustez la largeur selon vos besoins */
+    height: auto; /* Garde le ratio aspect de l'image */
+    margin-right: 68px; /* Espacement entre l'image et le texte */
+}
+
+.colonne {
+    display: flex;
+    justify-content: center; /* ou start pour aligner à gauche */
+    gap: 50px; /* Ajustez l'espacement entre les colonnes */
+    width: 100%; /* Réduit la largeur du conteneur à 40% de la largeur de l'écran */ 
+}
+
+.composants {
+    font-size: 30px;
+}
+
+.composants-icon {
+    width: 25px; /* Ajustez la largeur selon vos besoins */
+    height: auto; /* Garde le ratio aspect de l'image */
+    margin-right: 10px; /* Espacement entre l'image et le texte */
+    margin-left: 10px;
+}
+
+    </style>
+</head>
+
+<body> 
+<div class="textePage">
+<h1>Lance-Mines : Chargeur Grande Capacité</h1>
+</div>
+<div class="colonne">
+    <div class="progress-bar-container-parent">
+        <div class="progress-bar-container">
+            <div class="container-title">
+                Modification de Niveau :<img src="https://i.imgur.com/XwXntS7.png" alt="Ingénieur" class="title-icon">
+            </div>  
+                <div class="progress-bar" id="bar1">
+                    <div class="bar-title left">capacité du chargeur</div>
+                    <div class="bar-title right" style="color: rgb(0, 179, 15);">+36%</div>
+                    <div class="progress" id="progress1_1"></div>
+                    <div class="cursor" id="cursor1_1"></div>
+                </div>
+                <div class="progress-bar" id="bar2">
+                    <div class="bar-title left">Consommation</div>
+                    <div class="bar-title right" style="color: rgb(255, 0, 0);">+4%</div>
+                    <div class="progress" id="progress1_2"></div>
+                    <div class="cursor" id="cursor1_2"></div>
+                </div>
+                <div class="progress-bar" id="bar3">
+                    <div class="bar-title left">munitions maximum</div>
+                    <div class="bar-title right" style="color: rgb(0, 179, 15);">+36%</div>
+                    <div class="progress" id="progress1_3"></div>
+                    <div class="cursor" id="cursor1_3"></div>
+                </div>
+                <div class="progress-bar" id="bar4">
+                    <div class="bar-title left">Cadence de tir</div>
+                    <div class="bar-title right" style="color: rgb(0, 179, 15);">+2%</div>
+                    <div class="progress" id="progress1_4"></div>
+                    <div class="cursor" id="cursor1_4"></div>
+                </div>
+                <div class="progress-bar" id="bar4">
+                    <div class="bar-title left">Masse</div>
+                    <div class="bar-title right" style="color: rgb(255, 0, 0);">+20%</div>
+                    <div class="progress" id="progress1_5"></div>
+                    <div class="cursor" id="cursor1_5"></div>
+                </div>
+        </div>
+
+        <div class="progress-bar-container">
+            <div class="container-title">
+                Modification de Niveau :<img src="https://i.imgur.com/Rp1Xw0M.png" alt="Ingénieur" class="title-icon2">
+            </div> 
+                <div class="progress-bar" id="bar1">
+                    <div class="bar-title left">capacité du chargeur</div>
+                    <div class="bar-title right" style="color: rgb(0, 179, 15);">+52%</div>
+                    <div class="progress" id="progress2_1"></div>
+                    <div class="cursor" id="cursor2_1"></div>
+                </div>
+                <div class="progress-bar" id="bar2">
+                    <div class="bar-title left">Consommation</div>
+                    <div class="bar-title right" style="color: rgb(255, 0, 0);">+8%</div>
+                    <div class="progress" id="progress2_2"></div>
+                    <div class="cursor" id="cursor2_2"></div>
+                </div>
+                <div class="progress-bar" id="bar3">
+                    <div class="bar-title left">munitions maximum</div>
+                    <div class="bar-title right" style="color: rgb(0, 179, 15);">+52%</div>
+                    <div class="progress" id="progress2_3"></div>
+                    <div class="cursor" id="cursor2_3"></div>
+                </div>
+                <div class="progress-bar" id="bar4">
+                    <div class="bar-title left">Cadence de tir</div>
+                    <div class="bar-title right" style="color: rgb(0, 179, 15);">+4%</div>
+                    <div class="progress" id="progress2_4"></div>
+                    <div class="cursor" id="cursor2_4"></div>
+                </div>
+                <div class="progress-bar" id="bar4">
+                    <div class="bar-title left">Masse</div>
+                    <div class="bar-title right" style="color: rgb(255, 0, 0);">+30%</div>
+                    <div class="progress" id="progress2_5"></div>
+                    <div class="cursor" id="cursor2_5"></div>
+                </div>
+        </div>
+    
+        <div class="progress-bar-container">
+            <div class="container-title">
+                Modification de Niveau :<img src="https://i.imgur.com/dl0CQvW.png" alt="Ingénieur" class="title-icon3">
+            </div>
+                <div class="progress-bar" id="bar1">
+                    <div class="bar-title left">capacité du chargeur</div>
+                    <div class="bar-title right" style="color: rgb(0, 179, 15);">+68%</div>
+                    <div class="progress" id="progress3_1"></div>
+                    <div class="cursor" id="cursor3_1"></div>
+                </div>
+                <div class="progress-bar" id="bar2">
+                    <div class="bar-title left">Consommation</div>
+                    <div class="bar-title right" style="color: rgb(255, 0, 0);">+12%</div>
+                    <div class="progress" id="progress3_2"></div>
+                    <div class="cursor" id="cursor3_2"></div>
+                </div>
+                <div class="progress-bar" id="bar3">
+                    <div class="bar-title left">munitions maximum</div>
+                    <div class="bar-title right" style="color: rgb(0, 179, 15);">+68%</div>
+                    <div class="progress" id="progress3_3"></div>
+                    <div class="cursor" id="cursor3_3"></div>
+                </div>
+                <div class="progress-bar" id="bar4">
+                    <div class="bar-title left">Cadence de tir</div>
+                    <div class="bar-title right" style="color: rgb(0, 179, 15);">+6%</div>
+                    <div class="progress" id="progress3_4"></div>
+                    <div class="cursor" id="cursor3_4"></div>
+                </div>
+                <div class="progress-bar" id="bar4">
+                    <div class="bar-title left">Masse</div>
+                    <div class="bar-title right" style="color: rgb(255, 0, 0);">+40%</div>
+                    <div class="progress" id="progress3_5"></div>
+                    <div class="cursor" id="cursor3_5"></div>
+                </div>
+        </div>
+    
+        <div class="progress-bar-container">
+            <div class="container-title">
+                Modification de Niveau :<img src="https://i.imgur.com/qokK02a.png" alt="Ingénieur" class="title-icon4">
+            </div>
+                <div class="progress-bar" id="bar1">
+                    <div class="bar-title left">capacité du chargeur</div>
+                    <div class="bar-title right" style="color: rgb(0, 179, 15);">+84%</div>
+                    <div class="progress" id="progress4_1"></div>
+                    <div class="cursor" id="cursor4_1"></div>
+                </div>
+                <div class="progress-bar" id="bar2">
+                    <div class="bar-title left">Consommation</div>
+                    <div class="bar-title right" style="color: rgb(255, 0, 0);">+16%</div>
+                    <div class="progress" id="progress4_2"></div>
+                    <div class="cursor" id="cursor4_2"></div>
+                </div>
+                <div class="progress-bar" id="bar3">
+                    <div class="bar-title left">munitions maximum</div>
+                    <div class="bar-title right" style="color: rgb(0, 179, 15);">+84%</div>
+                    <div class="progress" id="progress4_3"></div>
+                    <div class="cursor" id="cursor4_3"></div>
+                </div>
+                <div class="progress-bar" id="bar4">
+                    <div class="bar-title left">Cadence de tir</div>
+                    <div class="bar-title right" style="color: rgb(0, 179, 15);">+8%</div>
+                    <div class="progress" id="progress4_4"></div>
+                    <div class="cursor" id="cursor4_4"></div>
+                </div>
+                <div class="progress-bar" id="bar4">
+                    <div class="bar-title left">Masse</div>
+                    <div class="bar-title right" style="color: rgb(255, 0, 0);">+50%</div>
+                    <div class="progress" id="progress4_5"></div>
+                    <div class="cursor" id="cursor4_5"></div>
+                </div>
+        </div>
+    
+        <div class="progress-bar-container">
+            <div class="container-title">
+                Modification de Niveau :<img src="https://i.imgur.com/mDDFHIm.png" alt="Ingénieur" class="title-icon5">
+            </div>
+                <div class="progress-bar" id="bar1">
+                    <div class="bar-title left">capacité du chargeur</div>
+                    <div class="bar-title right" style="color: rgb(0, 179, 15);">+100%</div>
+                    <div class="progress" id="progress5_1"></div>
+                    <div class="cursor" id="cursor5_1"></div>
+                </div>
+                <div class="progress-bar" id="bar2">
+                    <div class="bar-title left">Consommation</div>
+                    <div class="bar-title right" style="color: rgb(255, 0, 0);">+20%</div>
+                    <div class="progress" id="progress5_2"></div>
+                    <div class="cursor" id="cursor5_2"></div>
+                </div>
+                <div class="progress-bar" id="bar3">
+                    <div class="bar-title left">munitions maximum</div>
+                    <div class="bar-title right" style="color: rgb(0, 179, 15);">+100%</div>
+                    <div class="progress" id="progress5_3"></div>
+                    <div class="cursor" id="cursor5_3"></div>
+                </div>
+                <div class="progress-bar" id="bar4">
+                    <div class="bar-title left">Cadence de tir</div>
+                    <div class="bar-title right" style="color: rgb(0, 179, 15);">+10%</div>
+                    <div class="progress" id="progress5_4"></div>
+                    <div class="cursor" id="cursor5_4"></div>
+                </div>
+                <div class="progress-bar" id="bar4">
+                    <div class="bar-title left">Masse</div>
+                    <div class="bar-title right" style="color: rgb(255, 0, 0);">+60%</div>
+                    <div class="progress" id="progress5_5"></div>
+                    <div class="cursor" id="cursor5_5"></div>
+                </div>
+        </div>
+    </div>
+
+    <div class="progress-bar-container-parent">
+        <div class="progress-bar-container2">
+            <div class="container-title2">
+                Coût de fabrication :
+            </div>
+            <div class="composants">
+                1 - Féraille Mécanique<img src="https://i.imgur.com/DzuEN0C.png" alt="Ingénieur" class="composants-icon">
+            </div>  
+        </div>
+
+        <div class="progress-bar-container2">
+            <div class="container-title2">
+                Coût de frabrication :
+            </div> 
+            <div class="composants">
+                1 - Féraille Mécanique<img src="https://i.imgur.com/DzuEN0C.png" alt="Ingénieur" class="composants-icon"><br>
+                1 - Vanadium<img src="https://i.imgur.com/dZoD8lj.png" alt="Ingénieur" class="composants-icon">
+            </div>
+        </div>
+    
+        <div class="progress-bar-container2">
+            <div class="container-title2">
+                Coût de frabrication :
+            </div>
+            <div class="composants">
+                1 - Féraille Mécanique<img src="https://i.imgur.com/DzuEN0C.png" alt="Ingénieur" class="composants-icon"><br>
+                1 - Vanadium<img src="https://i.imgur.com/dZoD8lj.png" alt="Ingénieur" class="composants-icon"><br>
+                1 - Niobium<img src="https://i.imgur.com/nyxpO96.png" alt="Ingénieur" class="composants-icon">
+            </div>
+        </div>
+    
+        <div class="progress-bar-container2">
+            <div class="container-title2">
+                Coût de frabrication :
+            </div>
+            <div class="composants">
+                1 - équipement mécanique<img src="https://i.imgur.com/dZoD8lj.png" alt="Ingénieur" class="composants-icon"><br>
+                1 - Composite à haute densité<img src="https://i.imgur.com/nyxpO96.png" alt="Ingénieur" class="composants-icon"><br>
+                1 - étain<img src="https://i.imgur.com/nyxpO96.png" alt="Ingénieur" class="composants-icon">
+            </div>
+        </div>
+    
+        <div class="progress-bar-container2">
+            <div class="container-title2">
+                Coût de frabrication :
+            </div>
+            <div class="composants">
+                1 - Composant mécanique<img src="https://i.imgur.com/nyxpO96.png" alt="Ingénieur" class="composants-icon"><br>
+                1 - Composite breveté<img src="https://i.imgur.com/AevZdGd.png" alt="Ingénieur" class="composants-icon"><br>
+                1 - Supercondensateur militaire<img src="https://i.imgur.com/ZkZafk3.png" alt="Ingénieur" class="composants-icon">
+            </div>
+        </div>
+    </div>
+</div>
+
+    <div class="left-buttons">
+        <a href="Coriolis.html">
+            <img class="button" src="https://i.imgur.com/xq8p8Li.png" alt="Coriolis"
+                onmouseover="this.src='https://i.imgur.com/qdZcHbn.png';" 
+                onmouseout="this.src='https://i.imgur.com/xq8p8Li.png';">
+        </a>
+
+
+        <a href="Spansh.html">
+            <img class="button" src="https://i.imgur.com/wG2dv0j.png" alt="Spansh"
+                onmouseover="this.src='https://i.imgur.com/ZteiJXg.png';" 
+                onmouseout="this.src='https://i.imgur.com/wG2dv0j.png';">
+        </a>
+
+
+        <a href="OGM.html">
+            <img class="button" src="https://i.imgur.com/hSwCpNL.png" alt="OGM"
+                onmouseover="this.src='https://i.imgur.com/vit5xZA.png';" 
+                onmouseout="this.src='https://i.imgur.com/hSwCpNL.png';">
+        </a>
+
+        <a href="Canonn.html">
+            <img class="button" src="https://i.imgur.com/cUGEzSv.png" alt="Canonn"
+                onmouseover="this.src='https://i.imgur.com/KMIPfe4.png';" 
+                onmouseout="this.src='https://i.imgur.com/cUGEzSv.png';">
+        </a>
+
+        <a href="HUD.html">
+            <img class="button" src="https://i.imgur.com/smiWamI.png" alt="Color HUD"
+                onmouseover="this.src='https://i.imgur.com/pWYrOjF.png';"
+                onmouseout="this.src='https://i.imgur.com/smiWamI.png';">
+        </a>
+
+        <a href="Ingénieurs.html">
+            <img class="button" src="https://i.imgur.com/aa20aAu.png" alt="Ingénieurs"
+                onmouseover="this.src='https://i.imgur.com/aa20aAu.png';"
+                onmouseout="this.src='https://i.imgur.com/aa20aAu.png';">
+        </a>
+
+    </div>
+    
+    <div class="navbar">
+        <a href="Untitled-2.html">
+            <img class="button" src="https://i.imgur.com/qSIUdoa.png" alt="Accueil" 
+                onmouseover="this.src='https://i.imgur.com/eTJ4Czl.png';" 
+                onmouseout="this.src='https://i.imgur.com/qSIUdoa.png';">
+        </a>
+        <a href="membres.html">
+            <img class="button" src="https://i.imgur.com/LoXJ9Mm.png" alt="Membres" 
+                onmouseover="this.src='https://i.imgur.com/m3Fl9eq.png';" 
+                onmouseout="this.src='https://i.imgur.com/LoXJ9Mm.png';">
+        </a>
+
+        <a href="Grades.html">
+            <img class="button" src="https://i.imgur.com/2PKWJiJ.png" alt="Grades" 
+                onmouseover="this.src='https://i.imgur.com/60vPKEA.png';" 
+                onmouseout="this.src='https://i.imgur.com/2PKWJiJ.png';">
+        </a>
+
+        <a href="Médailles.html">
+            <img class="button" src="https://i.imgur.com/kzZrU05.png" alt="Médailles" 
+                onmouseover="this.src='https://i.imgur.com/4beZ6fQ.png';" 
+                onmouseout="this.src='https://i.imgur.com/kzZrU05.png';">
+        </a>
+
+        <a href="Données.html">
+            <img class="button" src="https://i.imgur.com/yeQwmjM.png" alt="Données" 
+                onmouseover="this.src='https://i.imgur.com/yeQwmjM.png';" 
+                onmouseout="this.src='https://i.imgur.com/yeQwmjM.png';">
+        </a>
+    </div>
+
+    <script>
+        window.onload = function() {
+            // Définition des données pour chaque bloc de barres de progression
+            const blocsData = [
+                [ // Données pour le premier bloc
+                    { value: 36, color: 'green' },
+                    { value: 4, color: 'red' },
+                    { value: 36, color: 'green' },
+                    { value: 2, color: 'green' },
+                    { value: 20, color: 'red' }
+                ],
+                [ // Données pour le deuxième bloc
+                    { value: 52, color: 'green' },
+                    { value: 8, color: 'red' },
+                    { value: 52, color: 'green' },
+                    { value: 4, color: 'green' },
+                    { value: 30, color: 'red' }
+                ],
+                [ // Données pour le troisième bloc
+                    { value: 68, color: 'green' },
+                    { value: 12, color: 'red' },
+                    { value: 68, color: 'green' },
+                    { value: 6, color: 'green' },
+                    { value: 40, color: 'red' }
+                ],
+                [ // Données pour le quatrième bloc
+                    { value: 84, color: 'green' },
+                    { value: 16, color: 'red' },
+                    { value: 84, color: 'green' },
+                    { value: 8, color: 'green' },
+                    { value: 50, color: 'red' }
+                ],
+                [ // Données pour le cinquième bloc
+                    { value: 100, color: 'green' },
+                    { value: 20, color: 'red' },
+                    { value: 100, color: 'green' },
+                    { value: 10, color: 'green' },
+                    { value: 60, color: 'red' }
+                ],
+            ];
+        
+            // Boucle à travers chaque bloc de données
+            blocsData.forEach((blocData, blocIndex) => {
+                // Boucle à travers chaque barre de progression dans le bloc
+                blocData.forEach((barData, barIndex) => {
+                    const bar = document.getElementById(`progress${blocIndex + 1}_${barIndex + 1}`);
+                    const cursor = document.getElementById(`cursor${blocIndex + 1}_${barIndex + 1}`);
+                    const positive = barData.value >= 0;
+                    const width = Math.abs(barData.value) / 2; // Adaptation de l'échelle
+        
+                    if (bar) {
+                        bar.style.width = `${width}%`;
+                        bar.style.backgroundColor = barData.color;
+                        bar.style.left = positive ? '50%' : `${50 - width}%`;
+                    }
+        
+                    if (cursor) {
+                        cursor.style.left = positive ? `calc(50% + ${width}%)` : `calc(50% - ${width}%)`;
+                    }
+                });
+            });
+        };
+        </script>
+</body>
+</html>

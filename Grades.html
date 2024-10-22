@@ -1,0 +1,397 @@
+<!DOCTYPE html>
+<html lang="fr">
+<head>
+    <meta charset="UTF-8">
+    <title>Page d'Accueil avec Boutons Images</title>
+    <link href="https://fonts.googleapis.com/css2?family=Bebas+Neue&display=swap" rel="stylesheet"> 
+    <style>
+        body, html {
+            font-family: 'Bebas Neue', sans-serif;
+            font-size: 100px; /*Augmente la taille du texte pour tous le document */
+            color: #ff5e00; /*Change la couleur du texte pour tous le document */
+            margin: 0;
+            padding: 0;
+            width: 100%;
+            height: 100%;
+            display: flex;
+            flex-direction: column;
+            background-image: url('https://i.imgur.com/BwoLRUW.jpg');
+            background-attachment: fixed;
+            background-size: cover;
+            background-position: center;
+            background-repeat: no-repeat;
+            padding-top: 70px; /* Ajusté pour prendre en compte la hauteur de la barre de navigation */
+            font-family: 'Bebas Neue', sans-serif;
+            font-size: 100px;
+            color: #ff5e00;
+            text-shadow: -2px -2px 0 #000000, 2px -2px 0 #000000, -2px 2px 0 #000000, 2px 2px 0 #000000;
+}
+
+        .navbar {
+            display: flex;
+            justify-content: space-around; /* Répartit uniformément l'espace entre les boutons */
+            align-items: center;
+            width: 100%;
+            background-image: url(https://i.imgur.com/gb8A6Hr.jpg);
+            background-size: cover;
+            background-position: center;
+            background-color: #333; /* Couleur de fond de la barre de navigation */
+            position: fixed; /* Fixe la barre en haut de l'écran */
+            top: 0;
+            left: 0;
+            padding: 0px 0; /* Ajoute un peu d'espace au-dessus et en dessous des boutons */
+            border-bottom: 3px solid #ff5e00;
+            z-index: 1000;
+        }
+
+        .button {
+            cursor: pointer;
+            transition: transform 0.3s ease; /* Optionnel: ajoute un effet de transition au survol */
+        }
+
+        .button:hover {
+            transform: scale(1.1); /* Optionnel: agrandit légèrement le bouton au survol */
+        }
+
+        .main-content {
+            width: 100%;
+            flex-grow: 1;
+            display: block;
+            align-items: flex-start;
+            justify-content: flex-start;
+            padding-top: 50px;
+            padding-left: 20px;
+        }
+
+        .textFrame {
+            background-image: url('https://i.imgur.com/rKFdhlw.png');
+            background-size: cover;
+            background-position: center;
+            padding: 20px;
+            color: #FFFFFF;
+            font-size: 16px;
+            width: 300px;
+            height: auto;
+            text-align: center;
+            margin: 20px 0;
+            margin-left: 10px;
+            margin-right: 10px;
+        }
+
+        .image-text-container {
+            display: flex;
+            flex-direction: row; /* Alignement horizontal des blocs */
+            align-items: center; /* Centre les éléments verticalement */
+            text-align: left;
+            margin-bottom: 20px; /* Espacement entre chaque conteneur d'image-texte */
+            width: 95%; /* Ajustez au besoin */
+            border-bottom: 3px solid #ff5e00;
+            padding-bottom: 20px;
+        }
+
+        .image {
+            width: 150px; /* ou la taille souhaitée */
+            height: auto; /* pour conserver le ratio de l'image */
+            margin-right: 20px; /* Ajoute de l'espace entre l'image et le texte */
+            margin-left: 10px;
+        }
+
+        .text { /* Stylisez votre texte comme vous le souhaitez */
+            font-size: 20px;
+        }
+
+        .textePage {
+            margin-left: 10px;
+            margin-top: -100px;
+            margin-bottom: -100px;
+        }
+
+    </style>
+</head>
+
+<body>
+    <div class="textePage">
+        <h6>GRADES DE LA RYNNZLER CORPORATION :</h6>
+    </div>
+
+    <div class="image-text-container">
+        <img src="https://i.imgur.com/jHVbKDx.png" alt="Recrue" class="image">
+            <div class="text">
+                <h1>RECRUE :</h1>
+                    <p>La Rynnzler Corporation accueille chaleureusement ses nouvelles recrues, incarnant l'esprit novateur et la quête d'excellence qui caractérisent notre entreprise. Le grade de Recrue représente le point de départ de chaque voyage au sein de la corporation, offrant une opportunité unique de s'immerger dans la culture d'innovation qui nous définit. En tant que Recrue, vous êtes invité à explorer un monde de possibilités, à apprendre de vos collègues expérimentés et à contribuer avec vos idées fraîches et perspectives uniques.
+
+                    Nous croyons fermement en la croissance et le développement personnel. C'est pourquoi nous mettons à disposition des Recrues un ensemble de ressources complètes, comprenant des formations spécialisées, des ateliers de développement de compétences et des séances de mentorat, tous conçus pour vous préparer au succès dans votre parcours au sein de l'entreprise.
+                
+                    Le grade de Recrue n'est pas seulement un titre; c'est une invitation à devenir partie intégrante d'une équipe qui vise à repousser les limites de ce qui est possible. À travers des projets stimulants, des défis innovants et une collaboration étroite avec des équipes multidisciplinaires, vous aurez l'occasion de laisser votre empreinte dès le premier jour.
+                
+                    Nous attendons de nos Recrues qu'elles fassent preuve de curiosité, d'engagement et d'une volonté d'apprendre. En retour, la Rynnzler Corporation s'engage à fournir un environnement où ces qualités peuvent s'épanouir, où chaque succès est célébré et chaque défi est vu comme une opportunité de croissance.</p>
+            </div>
+    </div>
+
+    <div class="image-text-container">
+        <img src="https://i.imgur.com/8XnOWxV.png" alt="Pilote Breveté" class="image">
+            <div class="text">
+                <h1>PILOTE Breveté :</h1>
+                    <p>Le grade de Pilote Breveté au sein de la Rynnzler Corporation est une distinction prestigieuse, symbolisant une maîtrise exceptionnelle et un engagement profond envers l'excellence dans l'art du pilotage. Atteindre ce grade est le fruit d'un parcours rigoureux, marqué par une formation intensive, une évaluation continue et une expérience pratique significative dans des conditions variées et souvent exigeantes.
+
+                    En tant que Pilote Breveté, vous êtes au cœur de nos opérations, jouant un rôle crucial dans la réussite de nos missions les plus ambitieuses. Vous possédez non seulement des compétences techniques de haut niveau, mais aussi une capacité remarquable à prendre des décisions stratégiques sous pression, garantissant la sécurité et l'efficacité de chaque vol.
+                
+                    La Rynnzler Corporation reconnaît et valorise l'importance cruciale de ses Pilotes Brevetés. En tant que tel, nous nous engageons à fournir des opportunités continues de développement professionnel, y compris l'accès à des technologies de pointe, des programmes de formation avancée et des simulations conçues pour défier et affiner davantage vos compétences.
+                
+                    Les Pilotes Brevetés sont également des mentors et des leaders au sein de notre organisation, partageant leur savoir, leur expérience et leur passion avec les recrues et les collègues, aidant à élever le standard d'excellence pour tous. Votre leadership inspire et motive, jouant un rôle clé dans le maintien de notre culture d'excellence et d'innovation continue.</p>
+            </div>
+    </div>
+    
+    <div class="image-text-container">
+        <img src="https://i.imgur.com/SLdi7QT.png" alt="Quartier-Maitre 2nd Classe" class="image">
+            <div class="text">
+                <h1>Quartier-Maître 2nd Classe :</h1>
+                    <p>Le grade de Quartier-Maître de 2nde Classe au sein de la Rynnzler Corporation symbolise une étape significative dans la carrière d'un membre de notre équipe. Ce grade est attribué à ceux qui ont démontré une maîtrise approfondie de leurs responsabilités initiales et ont fait preuve d'un engagement inébranlable envers l'amélioration continue et l'excellence opérationnelle. En tant que Quartier-Maître de 2nde Classe, vous êtes reconnu non seulement pour vos compétences techniques et votre capacité à exécuter des tâches complexes avec précision, mais aussi pour votre leadership naissant et votre capacité à guider les recrues.
+
+                        Votre rôle s'étend désormais au-delà de l'exécution des opérations quotidiennes pour inclure la supervision de petits groupes, la gestion de projets spécifiques et la contribution active à l'amélioration des processus. Votre capacité à anticiper les besoins, à résoudre proactivement les problèmes et à encourager l'excellence au sein de votre équipe est essentielle à la réussite de nos missions.
+                        
+                        La Rynnzler Corporation s'engage à soutenir votre croissance continue à travers des formations avancées, des opportunités de mentorat et des projets qui défient vos compétences et élargissent votre expérience. Votre progression vers le grade de Quartier-Maître de 1ère Classe dépendra de votre capacité à embrasser ces opportunités, à démontrer un leadership exceptionnel et à contribuer de manière significative à nos objectifs stratégiques.</p>
+            </div>
+    </div>
+
+    <div class="image-text-container">
+        <img src="https://i.imgur.com/JLUREvm.png" alt="Quartier-Maitre 1ère Classe" class="image">
+            <div class="text">
+                <h1>Quartier-Maître 1ère Classe :</h1>
+                    <p>Atteindre le grade de Quartier-Maître de 1ère Classe est une marque de distinction au sein de la Rynnzler Corporation, reconnaissant une expertise professionnelle exceptionnelle, un leadership efficace et une contribution substantielle à la réalisation de nos ambitions les plus stratégiques. Ce grade est décerné à ceux qui ont transcendé les attentes du rôle de Quartier-Maître de 2nde Classe, en démontrant une capacité remarquable à gérer des défis complexes, à innover dans leurs domaines d'expertise et à inspirer l'excellence chez les autres.
+
+                        En tant que Quartier-Maître de 1ère Classe, vous jouez un rôle crucial dans le mentorat des membres moins expérimentés de l'équipe, en partageant vos connaissances et en cultivant les talents qui façonneront l'avenir de la Rynnzler Corporation. Votre vision stratégique et votre engagement envers nos valeurs fondamentales vous positionnent comme un pilier central de notre organisation, capable de diriger par l'exemple et de piloter des initiatives qui ont un impact durable.
+                        
+                        Votre parcours vers des rôles de leadership plus élevés au sein de la Rynnzler Corporation sera pavé de défis enrichissants, d'opportunités de croissance personnelle et professionnelle, et de la chance de contribuer de manière significative à des projets révolutionnaires. Nous nous engageons à fournir les ressources, le soutien et la reconnaissance nécessaires pour faciliter votre succès continu et célébrer les réalisations qui vous attendent en tant que leader au sein de notre entreprise.
+                        </p>
+            </div>
+    </div>
+
+    <div class="image-text-container">
+        <img src="https://i.imgur.com/LdIpqh6.png" alt="Elève Maistrancier" class="image">
+            <div class="text">
+                <h1>élève maistrancier :</h1>
+                    <p>Le grade d'Élève Maistrancier marque une étape cruciale dans le parcours professionnel au sein de la Rynnzler Corporation, symbolisant l'entrée dans un programme de formation avancée destiné à préparer les individus aux rôles de leadership technique et opérationnel. Ce grade distingue les membres de l'équipe qui ont non seulement démontré une compétence et une fiabilité exceptionnelles dans leurs fonctions actuelles, mais qui ont également montré un potentiel de croissance significatif et un engagement profond envers les valeurs fondamentales de notre entreprise.
+
+                        En tant qu'Élève Maistrancier, vous bénéficierez d'un accès privilégié à un curriculum rigoureux, conçu pour élargir vos connaissances techniques, affiner vos compétences en gestion de projet et développer votre acuité stratégique. Le programme combine des cours théoriques, des ateliers pratiques, et des missions sur le terrain, vous offrant une compréhension complète des opérations multidisciplinaires de la Rynnzler Corporation et des industries que nous servons.
+                        
+                        La formation vise à vous préparer à assumer des responsabilités accrues, en vous équipant pour naviguer dans les défis complexes et dynamiques de notre environnement de travail en évolution rapide. À travers une série d'évaluations de performance et de projets de leadership, vous aurez l'occasion de démontrer votre capacité à appliquer les principes appris, à diriger des équipes avec assurance et à contribuer de manière significative à nos objectifs stratégiques.
+                        
+                        Le succès dans le programme des Élèves Maistranciers ouvre la porte à des rôles avancés au sein de la Rynnzler Corporation, y compris des positions de leadership dans la gestion de projet, l'ingénierie, la recherche et le développement, et d'autres domaines clés qui bénéficient directement de votre expertise élargie et de votre vision stratégique.
+                        
+                        L'ascension au grade d'Élève Maistrancier est une reconnaissance de votre potentiel, de votre dévouement et de votre passion pour l'excellence. C'est le début d'un voyage exigeant mais enrichissant vers le leadership et l'innovation, où vous serez appelé à défier le statu quo, à inspirer les autres et à laisser une empreinte durable sur l'avenir de la Rynnzler Corporation.
+                        </p>
+            </div>
+    </div>
+
+    <div class="image-text-container">
+        <img src="https://i.imgur.com/2KI7Mhd.png" alt="Second-Maître Maistrancier" class="image">
+            <div class="text">
+                <h1>Second-Maître maistrancier :</h1>
+                    <p>Le grade de Second-Maître Maistrancier au sein de la Rynnzler Corporation représente une reconnaissance prestigieuse de la compétence technique supérieure, du leadership émergent, et de l'engagement envers l'excellence. Attribué à ceux qui ont excellemment complété le programme d'Élève Maistrancier, ce grade symbolise la transition d'un potentiel prometteur à une réalité de compétence, de leadership et d'innovation professionnelle.
+
+                        En tant que Second-Maître Maistrancier, vous êtes au cœur des initiatives stratégiques de l'entreprise, agissant comme un pilier essentiel dans la mise en œuvre de solutions complexes et la gestion d'équipes multidisciplinaires. Ce grade est une reconnaissance de votre capacité à appliquer des connaissances techniques approfondies dans des situations pratiques, à résoudre des problèmes de manière créative et efficace, et à diriger par l'exemple, motivant vos pairs et subordonnés à atteindre l'excellence.
+                        
+                        Le rôle de Second-Maître Maistrancier est caractérisé par une responsabilité accrue, notamment dans la gestion de projets critiques, la supervision de la formation technique des membres de l'équipe, et la contribution active à la stratégie et à la planification opérationnelle de la Rynnzler Corporation. Vous êtes également chargé de mentorat, guidant les Élèves Maistranciers à travers leur développement professionnel et jouant un rôle clé dans la culture d'un environnement de travail collaboratif, innovant et axé sur les résultats.
+                        </p>
+            </div>
+    </div>
+
+    <div class="image-text-container">
+        <img src="https://i.imgur.com/K1fRpuh.png" alt="Second-Maître" class="image">
+            <div class="text">
+                <h1>Second-Maître :</h1>
+                    <p>Le grade de Second-Maître au sein de la Rynnzler Corporation est un témoignage de l'accomplissement professionnel, marquant la transition d'un individu d'un rôle exécutant à un rôle plus axé sur le leadership et la supervision. Ce grade est décerné à ceux qui ont prouvé leur expertise technique, leur capacité à résoudre des problèmes complexes et leur aptitude à prendre des initiatives cruciales pour le succès des projets.
+
+                    En tant que Second-Maître, vous assumez des responsabilités accrues, incluant la supervision des opérations quotidiennes, la coordination des tâches au sein de votre équipe, et la garantie que les objectifs de projet sont atteints avec efficacité et précision. Vous servez de point de liaison entre la direction et les membres de l'équipe, communiquant les directives, facilitant la résolution des problèmes et contribuant à un environnement de travail positif et productif.
+                    
+                    La Rynnzler Corporation reconnaît l'importance du rôle de Second-Maître dans le maintien de nos standards d'excellence. Ainsi, nous nous engageons à fournir un soutien continu à travers des programmes de formation avancés, des opportunités de développement professionnel, et des initiatives de mentorat, vous permettant de continuer à évoluer dans votre carrière et à affiner vos compétences de leadership.
+                    </p>
+            </div>
+    </div>
+
+    <div class="image-text-container">
+        <img src="https://i.imgur.com/3Gvxo9y.png" alt="Maître" class="image">
+            <div class="text">
+                <h1>Maître :</h1>
+                    <p>Atteindre le grade de Maître signifie avoir atteint un niveau d'excellence et de leadership reconnu au sein de la Rynnzler Corporation. Ce grade honore ceux qui ont démontré une maîtrise exceptionnelle de leur domaine, une capacité avérée à diriger des équipes à travers des défis complexes, et un engagement envers l'innovation et l'amélioration continue.
+
+                        Les Maîtres jouent un rôle crucial dans la stratégie et la planification opérationnelle, guidant la conception et l'exécution de projets d'envergure, tout en veillant à l'adoption des meilleures pratiques et technologies. Vous êtes chargé de développer les talents au sein de votre équipe, de promouvoir une culture d'excellence et d'innovation, et de contribuer directement à la réussite et à la croissance de la Rynnzler Corporation.
+                        
+                        Le grade de Maître est accompagné d'une reconnaissance significative et d'opportunités de leadership stratégique au sein de l'entreprise. La Rynnzler Corporation s'engage à soutenir votre parcours continu, offrant des ressources pour le développement professionnel, l'accès à des recherches de pointe et la participation à des forums d'innovation globaux, où vous pourrez partager votre expertise et apprendre des leaders de l'industrie.
+                        </p>
+            </div>
+    </div>
+
+    <div class="image-text-container">
+        <img src="https://i.imgur.com/AoHVzQ3.png" alt="Premier-Maître" class="image">
+            <div class="text">
+                <h1>Premier-Maître :</h1>
+                    <p>Le grade de Premier-Maître au sein de la Rynnzler Corporation incarne une réalisation exceptionnelle dans la hiérarchie professionnelle, reconnaissant une expertise technique sans pareil et un leadership éprouvé. Les individus qui atteignent ce niveau ont fait la preuve de leur dévouement absolu à l'excellence, à la fois dans la gestion des projets les plus critiques et dans l'orientation des équipes vers des performances exceptionnelles.
+
+                        En tant que Premier-Maître, vous jouez un rôle pivot dans le développement stratégique de nos opérations, en prenant en charge la supervision de projets d'envergure et en menant des initiatives d'innovation. Votre capacité à naviguer à travers des défis complexes avec acuité et prévoyance place la Rynnzler Corporation à l'avant-garde du secteur. Votre leadership inspire l'excellence à tous les niveaux de l'organisation, et votre mentorat aide à cultiver la prochaine génération de leaders au sein de notre entreprise.
+                        </p>
+            </div>
+    </div>
+
+    <div class="image-text-container">
+        <img src="https://i.imgur.com/3TJ7Zkx.png" alt="Major" class="image">
+            <div class="text">
+                <h1>Major :</h1>
+                    <p>Le grade de Major représente le sommet du leadership technique et opérationnel au sein de la Rynnzler Corporation. Ce titre est réservé à ceux qui ont démontré un engagement indéfectible envers les valeurs de l'entreprise, une compétence exceptionnelle dans leur domaine, et une capacité à influencer de manière significative la direction stratégique et la réussite de l'entreprise.
+
+                        En tant que Major, vous êtes responsable de l'élaboration de stratégies globales, de la gestion des ressources critiques et de la direction de divisions ou de départements entiers. Votre vision stratégique guide l'entreprise à travers des périodes de transformation et de croissance, assurant que la Rynnzler Corporation reste à l'avant-garde de l'innovation et du succès dans un marché en constante évolution. Votre leadership est un pilier sur lequel repose la réputation d'excellence de notre entreprise.
+                    </p>
+            </div>
+    </div>
+
+    <div class="image-text-container">
+        <img src="https://i.imgur.com/A1CjTm1.png" alt="Aspirant" class="image">
+            <div class="text">
+                <h1>Aspirant :</h1>
+                    <p>Le grade d'Aspirant marque le début du parcours de leadership au sein de la Rynnzler Corporation, offrant une plateforme unique pour ceux qui aspirent à jouer un rôle de direction dans l'avenir de l'entreprise. Ce titre est attribué à des individus exceptionnels qui ont fait preuve d'une capacité impressionnante à apprendre, à s'adapter et à contribuer au sein de leurs rôles actuels, tout en montrant un potentiel pour des responsabilités accrues.
+
+                        Les Aspirants sont engagés dans un parcours de développement intensif, conçu pour équiper les futurs leaders avec les compétences, les connaissances et la vision nécessaires pour naviguer dans les défis complexes du secteur et mener avec succès. À travers une combinaison de formations spécialisées, de mentorat personnalisé et d'expériences pratiques, vous serez préparé à assumer des rôles de leadership au sein de la Rynnzler Corporation, contribuant à façonner notre avenir avec innovation et intégrité.
+                    </p>
+            </div>
+    </div>
+
+    <div class="image-text-container">
+        <img src="https://i.imgur.com/yA019Fi.png" alt="Enseigne de Vaisseau 2nd Classe" class="image">
+            <div class="text">
+                <h1>Enseigne de Vaisseau 2nd Classe:</h1>
+                    <p>L'Enseigne de Vaisseau de 2e Classe représente le premier échelon des officiers au sein de la Rynnzler Corporation, marquant une entrée honorable dans le cadre du leadership formel. Ce grade est attribué aux individus qui ont démontré une compréhension profonde des opérations et des technologies clés de l'entreprise, ainsi qu'un potentiel de leadership et une capacité à contribuer efficacement à des missions complexes. Les Enseignes de Vaisseau de 2e Classe sont essentiels pour l'exécution des stratégies opérationnelles, jouant un rôle actif dans la planification et la mise en œuvre des projets, tout en veillant à la cohérence et à l'efficacité des procédures.
+
+                    En assumant ce grade, vous êtes confronté à des défis qui requièrent à la fois compétence technique et acuité tactique, tout en développant vos capacités de gestion et de leadership sous la tutelle de commandants expérimentés. La Rynnzler Corporation s'engage à soutenir votre développement continu par des formations avancées, des opportunités de mentorat, et des expériences opérationnelles enrichissantes, préparant le terrain pour votre ascension dans la hiérarchie de l'organisation.
+                    </p>
+            </div>
+    </div>
+
+    <div class="image-text-container">
+        <img src="https://i.imgur.com/k9OlLat.png" alt="Enseigne de Vaisseau 1ère Classe" class="image">
+            <div class="text">
+                <h1>Enseigne de Vaisseau 1ère Classe :</h1>
+                    <p>L'Enseigne de Vaisseau de 1e Classe est un grade qui reconnaît une maturité professionnelle et un leadership en développement au sein de la Rynnzler Corporation. Ce titre est conféré aux officiers qui ont excédé les attentes en tant qu'Enseigne de Vaisseau de 2e Classe, en faisant preuve d'une expertise opérationnelle exceptionnelle, d'une capacité à gérer des situations sous pression, et d'un engagement indéfectible envers les missions de l'entreprise. À ce niveau, vous êtes chargé de responsabilités accrues, comprenant la supervision directe de projets stratégiques, le leadership d'équipes multidisciplinaires, et la contribution active à la planification et à l'exécution de missions critiques.
+
+                    Le grade d'Enseigne de Vaisseau de 1e Classe symbolise également votre passage à des rôles de leadership plus influents, où votre capacité à influencer les résultats, à inspirer vos équipes et à innover dans votre domaine devient cruciale pour le succès global de l'entreprise. La Rynnzler Corporation valorise et soutient votre trajectoire de croissance par des initiatives de développement professionnel ciblées, vous offrant les outils et les connaissances nécessaires pour naviguer dans les défis futurs et pour assumer des postes de commandement supérieurs.
+                    
+                    Les grades d'Enseigne de Vaisseau de 2e et de 1e Classe sont des étapes fondamentales dans la carrière des officiers de la Rynnzler Corporation, représentant à la fois la reconnaissance des réalisations passées et l'anticipation de contributions futures exceptionnelles. Ils reflètent l'engagement de l'entreprise envers l'excellence, le leadership et l'innovation continue dans toutes ses opérations.
+                    </p>
+            </div>
+    </div>
+
+    <div class="image-text-container">
+        <img src="https://i.imgur.com/91GiQQJ.png" alt="Lieutenant de Vaisseau" class="image">
+            <div class="text">
+                <h1>Lieutenant de Vaisseau :</h1>
+                    <p>Le grade de Lieutenant de Vaisseau au sein de la Rynnzler Corporation est une marque de reconnaissance pour les officiers qui ont démontré une capacité exceptionnelle à mener des initiatives stratégiques et à gérer des équipes dans un environnement exigeant. Ce grade est un témoignage de leadership efficace, d'excellence opérationnelle et d'une compréhension approfondie des défis et des opportunités propres à l'industrie. Les Lieutenants de Vaisseau jouent un rôle crucial dans le pilotage des projets clés, en assurant la liaison entre la haute direction et les équipes opérationnelles, et en veillant à ce que les objectifs soient atteints avec précision et efficacité.
+
+                    </p>
+            </div>
+    </div>
+
+    <div class="image-text-container">
+        <img src="https://i.imgur.com/ZXUSf2R.png" alt="Capitaine de Corvette" class="image">
+            <div class="text">
+                <h1>Capitaine de Corvette</h1>
+                    <p>Le grade de Lieutenant de Vaisseau au sein de la Rynnzler Corporation est une marque de reconnaissance pour les officiers qui ont démontré une capacité exceptionnelle à mener des initiatives stratégiques et à gérer des équipes dans un environnement exigeant. Ce grade est un témoignage de leadership efficace, d'excellence opérationnelle et d'une compréhension approfondie des défis et des opportunités propres à l'industrie. Les Lieutenants de Vaisseau jouent un rôle crucial dans le pilotage des projets clés, en assurant la liaison entre la haute direction et les équipes opérationnelles, et en veillant à ce que les objectifs soient atteints avec précision et efficacité.
+                    
+                    </p>
+            </div>
+    </div>
+
+    <div class="image-text-container">
+        <img src="https://i.imgur.com/cHZVTPO.png" alt="Capitaine de Frégate" class="image">
+            <div class="text">
+                <h1>Capitaine de Frégate</h1>
+                    <p>Le grade de Capitaine de Frégate reconnaît les leaders exceptionnels qui ont démontré une capacité sans pareil à naviguer dans les défis du marché tout en inspirant le progrès et l'excellence au sein de leurs équipes. Dotés d'une expertise stratégique et d'une profonde compréhension des opérations de la Rynnzler Corporation, les Capitaines de Frégate dirigent des divisions ou des départements entiers, mettant en œuvre des politiques innovantes et des technologies de pointe pour maintenir l'entreprise à l'avant-garde de l'industrie. Leur leadership est crucial pour le développement de cultures d'équipe fortes, la promotion de l'innovation et l'atteinte d'objectifs ambitieux.
+
+                    </p>
+            </div>
+    </div>
+
+    <div class="image-text-container">
+        <img src="https://i.imgur.com/HqMkMDv.png" alt="Capitaine de Vaisseau" class="image">
+            <div class="text">
+                <h1>Capitaine de Vaisseau</h1>
+                    <p>Le grade de Capitaine de Vaisseau est réservé aux individus les plus méritoires, dont le leadership transformationnel et la vision stratégique ont eu un impact indélébile sur la trajectoire et le succès de la Rynnzler Corporation. En tant que Capitaine de Vaisseau, vous occupez des positions de haute direction, prenant des décisions cruciales qui influencent non seulement l'avenir immédiat mais aussi l'héritage à long terme de l'entreprise. Votre rôle implique une gestion complexe des risques, une planification stratégique avancée et un engagement profond envers l'excellence opérationnelle et le développement durable. Les Capitaines de Vaisseau sont des modèles pour tous au sein de la Rynnzler Corporation, incarnant les valeurs et les ambitions les plus élevées de l'entreprise.
+
+                    </p>
+            </div>
+    </div>
+
+    <div class="image-text-container">
+        <img src="https://i.imgur.com/xOLk2L6.png" alt="Contre-Amiral" class="image">
+            <div class="text">
+                <h1>Contre-Amiral</h1>
+                    <p>Le grade de Contre-Amiral au sein de la Rynnzler Corporation est un honneur extrêmement rare, réservé à une élite qui a démontré une capacité de leadership et une expertise stratégique hors du commun. Atteindre ce niveau illustre non seulement une carrière jalonnée de réalisations exceptionnelles mais aussi une influence profonde sur la direction et les succès de l'entreprise. Le Contre-Amiral est chargé de superviser des opérations d'une ampleur et d'une complexité considérables, nécessitant une vision stratégique inébranlable et une capacité à prendre des décisions qui façonnent l'avenir de la Rynnzler Corporation. La route vers ce grade est marquée par des défis immenses et une dévotion sans faille à l'excellence, rendant sa réalisation extrêmement, voire impossible, pour la majorité.
+
+                    </p>
+            </div>
+    </div>
+
+    <div class="image-text-container">
+        <img src="https://i.imgur.com/H2QhLxb.png" alt="Vic-Amiral" class="image">
+            <div class="text">
+                <h1>Vice-Amiral</h1>
+                    <p>Le grade de Vice-Amiral est attribué aux individus les plus distingués, dont l'influence sur la stratégie globale et les initiatives innovantes de la Rynnzler Corporation a été transformative. Ce titre reconnaît une contribution indélébile à l'excellence opérationnelle et au leadership visionnaire. En tant que Vice-Amiral, l'individu joue un rôle central dans la formulation des politiques les plus critiques et la supervision des initiatives stratégiques à l'échelle de l'entreprise. L'accès à ce grade est une preuve de détermination extraordinaire et d'un engagement envers les idéaux les plus élevés de l'entreprise, rendant sa portée presque inaccessible pour beaucoup.
+
+                    </p>
+            </div>
+    </div>
+
+    <div class="image-text-container">
+        <img src="https://i.imgur.com/VrsjrwP.png" alt="Vice-Amiral d'Escadre" class="image">
+            <div class="text">
+                <h1>Vice-Amiral d'Escadre</h1>
+                    <p>Atteindre le grade de Vice-Amiral d'Escadre signale une réalisation sans précédent dans la hiérarchie de la Rynnzler Corporation. Ce grade est synonyme d'une autorité suprême sur les opérations stratégiques et une capacité à guider l'entreprise à travers des périodes de changement et d'innovation significatives. Les Vice-Amiraux d'Escadre sont reconnus pour leur pensée stratégique avancée, leur leadership exceptionnel et leur contribution durable au succès de l'entreprise. Le parcours vers ce grade est extrêmement ardu, requérant une combinaison rare de talent, de persévérance et d'engagement envers les principes fondamentaux de la Rynnzler Corporation, rendant ce niveau pratiquement inatteignable pour la plupart.
+
+                    </p>
+            </div>
+    </div>
+
+    <div class="image-text-container">
+        <img src="https://i.imgur.com/rmx3NFq.png" alt="Amiral" class="image">
+            <div class="text">
+                <h1>Amiral</h1>
+                    <p>Le grade d'Amiral représente le sommet de la hiérarchie au sein de la Rynnzler Corporation, un titre qui incarne le summum du leadership, de l'excellence et de l'impact sur l'entreprise et son secteur. En tant qu'Amiral, l'individu détient une responsabilité ultime pour la direction stratégique et le succès à long terme de l'entreprise, symbolisant une vie de service dédié et de réalisations sans égal. Ce grade est une distinction extraordinairement rare, reflétant une carrière de contributions révolutionnaires à l'entreprise et à l'industrie dans son ensemble. Les Amiraux sont les gardiens des valeurs les plus chères de la Rynnzler Corporation, leur ascension vers ce grade étant un témoignage de leur engagement indéfectible envers l'excellence à tous les niveaux.
+
+                    </p>
+            </div>
+    </div>
+
+    <div class="navbar">
+        <a href="Untitled-2.html">
+            <img class="button" src="https://i.imgur.com/qSIUdoa.png" alt="Accueil" 
+                onmouseover="this.src='https://i.imgur.com/eTJ4Czl.png';" 
+                onmouseout="this.src='https://i.imgur.com/qSIUdoa.png';">
+        </a>
+        <a href="membres.html">
+            <img class="button" src="https://i.imgur.com/LoXJ9Mm.png" alt="Membres" 
+                onmouseover="this.src='https://i.imgur.com/m3Fl9eq.png';" 
+                onmouseout="this.src='https://i.imgur.com/LoXJ9Mm.png';">
+        </a>
+
+        <a href="Grades.html">
+            <img class="button" src="https://i.imgur.com/60vPKEA.png" alt="Grades" 
+                onmouseover="this.src='https://i.imgur.com/60vPKEA.png';" 
+                onmouseout="this.src='https://i.imgur.com/60vPKEA.png';">
+        </a>
+
+        <a href="Médailles.html">
+            <img class="button" src="https://i.imgur.com/kzZrU05.png" alt="Médailles" 
+                onmouseover="this.src='https://i.imgur.com/4beZ6fQ.png';" 
+                onmouseout="this.src='https://i.imgur.com/kzZrU05.png';">
+        </a>
+
+        <a href="Données.html">
+            <img class="button" src="https://i.imgur.com/e9kXEht.png" alt="Données" 
+                onmouseover="this.src='https://i.imgur.com/yeQwmjM.png';" 
+                onmouseout="this.src='https://i.imgur.com/e9kXEht.png';">
+        </a>
+    </div>
+
+    <div class="footer-bar"
+    </div>
+</body>
+</html>

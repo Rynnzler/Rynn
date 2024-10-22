@@ -1,0 +1,322 @@
+<!DOCTYPE html>
+<html lang="fr">
+<head>
+    <meta charset="UTF-8">
+    <title>Page d'Accueil avec Boutons Images</title>
+    <link href="https://fonts.googleapis.com/css2?family=Bebas+Neue&display=swap" rel="stylesheet"> 
+    <style>
+        body, html {
+        font-family: 'Bebas Neue', sans-serif;
+        color: #ff5e00;
+        margin: 0;
+        padding: 0;
+        width: 100%;
+        height: 100%;
+        display: flex;
+        flex-direction: column;
+        background-image: url('https://i.imgur.com/BwoLRUW.jpg');
+        background-attachment: fixed;
+        background-size: cover;
+        background-position: center;
+        background-repeat: no-repeat;
+        text-shadow: -2px -2px 0 #000000, 2px -2px 0 #000000, -2px 2px 0 #000000, 2px 2px 0 #000000;
+        }
+
+        .navbar {
+        display: flex;
+        justify-content: space-around;
+        align-items: center;
+        width: 100%;
+        background-image: url(https://i.imgur.com/gb8A6Hr.jpg);
+        background-size: cover;
+        background-position: center;
+        background-color: #333;
+        position: fixed;
+        top: 0;
+        left: 0;
+        padding: 10px 0;
+        border-bottom: 3px solid #ff5e00;
+        z-index: 1000;
+        }
+
+        .main-content {
+        padding-top: 100px; /* Adjusted to account for navbar height */
+        display: flex;
+        flex-direction: column;
+        align-items: center; /* Centers content */
+        width: 100%;
+        }
+
+        .blocs-container {
+        display: flex;
+        flex-wrap: wrap; /* Allows items to wrap */
+        justify-content: center; /* Centers containers */
+        align-items: flex-start;
+        }
+
+        .image-text-container {
+        display: flex;
+        flex-direction: column; /* Keeps text below the image */
+        align-items: center; /* Centers items horizontally */
+        text-align: center;
+        margin: 20px;
+        width: 150px; /* Set a fixed width */
+        height: 460px; /* Adjust based on your content */
+        position: relative;
+        overflow: hidden;
+        }
+
+        .default-content, .hover-content {
+        position: absolute;
+        top: 0;
+        left: 0;
+        width: 100%;
+        align-items: center;
+        justify-content: center;
+        transition: top 0.5s ease;
+        }
+
+        .hover-content {
+        top: 100%;
+        }
+
+        .image-text-container:hover .default-content {
+        top: -100%;
+        }
+
+        .image-text-container:hover .hover-content {
+        top: 0;
+        }
+
+        .image {
+        width: 100%; /* Adjust if needed */
+        height: auto;
+        margin-bottom: 10px;
+        }
+
+        .text {
+        font-size: 14px;
+        }
+
+        .textePage {
+        margin-left: 20px;
+        padding-top: 10px;
+        font-size: 30px;
+        }
+
+        .button {
+        cursor: pointer;
+        transition: transform 0.3s ease;
+        }
+
+        .button:hover {
+        transform: scale(1.1);
+        }
+    </style>
+</head>
+
+<body>
+    <div class="navbar">
+        <!-- Navbar links -->
+    </div>
+
+    <div class="main-content">
+        <div class="textePage">
+            <h1>MEMBRES DE LA RYNNZLER CORPORATION :</h1>
+        </div>
+
+        <!--DEBUT DU 1ER BLOC-->
+        <div class="blocs-container">
+            <!-- DEBUT DU CODE POUR RYNNZLER -->
+            <div class="image-text-container">
+                <div class="hover-content">
+                    <img src="https://i.imgur.com/rmx3NFq.png" alt="Amiral" class="image">
+                    <div class="text">
+                        <h1>Amiral</h1>
+                    </div>
+                </div>
+                <div class="default-content">
+                    <img src="https://i.imgur.com/nOZX2wW.png" alt="Rynnzler" class="image">
+                    <div class="text">
+                        <h1>Rynnzler</h1>
+                    </div>
+                </div>
+            </div>
+            <!--FIN DU CODE POUR RYNNZLER-->
+
+            <!--DEBUT DU CODE POUR THEDEEPFAKE-->
+            <div class="image-text-container">
+                <div class="hover-content">
+                    <img src="https://i.imgur.com/VrsjrwP.png" alt="Vice-Amiral d'Escadre" class="image">
+                    <div class="text">
+                        <h1>Vice-Amiral d'Escadre</h1>
+                    </div>
+                </div>
+                <div class="default-content">
+                    <img src="https://i.imgur.com/wPKVS7l.png" alt="TheDeepFake" class="image">
+                    <div class="text">
+                        <h1>TheDeepFake</h1>
+                    </div>
+                </div>
+            </div>
+            <!--FIN DU CODE POUR THEDEEPFAKE-->
+
+            <!--DEBUT DU CODE POUR FLACOEATSWFLS-->
+            <div class="image-text-container">
+                <div class="hover-content">
+                    <img src="https://i.imgur.com/H2QhLxb.png" alt="Vice-Amiral" class="image">
+                    <div class="text">
+                        <h1>Vice-Amiral</h1>
+                    </div>
+                </div>
+                <div class="default-content">
+                    <img src="https://i.imgur.com/utj22iz.png" alt="Flacoeatswfls" class="image">
+                    <div class="text">
+                        <h1>Flacoeatswfls</h1>
+                    </div>
+                </div>
+            </div>
+            <!--FIN DU CODE POUR FLACOEATSWFLS-->
+
+            <!--DEBUT DU CODE POUR DR.HYPNO-->
+            <div class="image-text-container">
+                <div class="hover-content">
+                    <img src="https://i.imgur.com/xOLk2L6.png" alt="Contre-Amiral" class="image">
+                    <div class="text">
+                        <h1>Contre-Amiral</h1>
+                    </div>
+                </div>
+                <div class="default-content">
+                    <img src="https://i.imgur.com/8csbBLY.png" alt="Dr.Hypno" class="image">
+                    <div class="text">
+                        <h1>Dr.Hypno</h1>
+                    </div>
+                </div>
+            </div>
+            <!--FIN DU CODE POUR DR.HYPNO-->
+        </div>
+        <!--FIN DU 1ER BLOC-->
+
+        <!--DEBUT DU 2EME BLOC-->
+        <div class="blocs-container">
+            <!--DEBUT DU CODE POUR SETIFIANO-->
+            <div class="image-text-container">
+                <div class="hover-content">
+                    <img src="https://i.imgur.com/8XnOWxV.png" alt="Pilote Brevté" class="image">
+                    <div class="text">
+                        <h1>Pilote Breveté</h1>
+                    </div>
+                </div>
+                <div class="default-content">
+                    <img src="https://i.imgur.com/UIMfEUR.png" alt="Setifiano" class="image">
+                    <div class="text">
+                        <h1>Setifiano</h1>
+                    </div>
+                </div>
+            </div>
+            <!--FIN DU CODE POUR SETIFIANO-->
+
+            <!--DEBUT DU CODE POUR PILOTE INCONNU 1-->
+            <div class="image-text-container">
+                <div class="hover-content">
+                    <img src="https://i.imgur.com/2YKl1yb.png" alt="Inconnu1" class="image">
+                    <div class="text">
+                        <h1>Indisponible</h1>
+                    </div>
+                </div>
+                <div class="default-content">
+                    <img src="https://i.imgur.com/2YKl1yb.png" alt="Inconnu1" class="image">
+                    <div class="text">
+                        <h1>Inconnu</h1>
+                    </div>
+                </div>
+            </div>
+            <!--FIN DU CODE POUR INCONNU 1-->
+
+            <!--DEBUT DU CODE POUR PILOTE INCONNU 2-->
+            <div class="image-text-container">
+                <div class="hover-content">
+                    <img src="https://i.imgur.com/2YKl1yb.png" alt="Inconnu2" class="image">
+                    <div class="text">
+                        <h1>Indisponible</h1>
+                    </div>
+                </div>
+                <div class="default-content">
+                    <img src="https://i.imgur.com/2YKl1yb.png" alt="Inconnu2" class="image">
+                    <div class="text">
+                        <h1>Inconnu</h1>
+                    </div>
+                </div>
+            </div>
+            <!--FIN DU CODE POUR INCONNU 2-->
+
+            <!--DEBUT DU CODE POUR PILOTE INCONNU 3-->
+            <div class="image-text-container">
+                <div class="hover-content">
+                    <img src="https://i.imgur.com/2YKl1yb.png" alt="Inconnu3" class="image">
+                    <div class="text">
+                        <h1>Indisponible</h1>
+                    </div>
+                </div>
+                <div class="default-content">
+                    <img src="https://i.imgur.com/2YKl1yb.png" alt="Inconnu3" class="image">
+                    <div class="text">
+                        <h1>Inconnu</h1>
+                    </div>
+                </div>
+            </div>
+            <!--FIN DU CODE POUR INCONNU 3-->
+
+            <!--DEBUT DU CODE POUR PILOTE INCONNU 4-->
+            <div class="image-text-container">
+                <div class="hover-content">
+                    <img src="https://i.imgur.com/2YKl1yb.png" alt="Inconnu4" class="image">
+                    <div class="text">
+                        <h1>Indisponible</h1>
+                    </div>
+                </div>
+                <div class="default-content">
+                    <img src="https://i.imgur.com/2YKl1yb.png" alt="Inconnu4" class="image">
+                    <div class="text">
+                        <h1>Inconnu</h1>
+                    </div>
+                </div>
+            </div>
+            <!--FIN DU CODE POUR INCONNU 4-->
+        </div>
+        <!--FIN DU 2EME BLOC-->
+    </div>
+
+    <div class="navbar">
+        <a href="Untitled-2.html">
+            <img class="button" src="https://i.imgur.com/qSIUdoa.png" alt="Accueil" 
+                onmouseover="this.src='https://i.imgur.com/eTJ4Czl.png';" 
+                onmouseout="this.src='https://i.imgur.com/qSIUdoa.png';">
+        </a>
+        <a href="membres.html">
+            <img class="button" src="https://i.imgur.com/m3Fl9eq.png" alt="Membres" 
+                onmouseover="this.src='https://i.imgur.com/m3Fl9eq.png';" 
+                onmouseout="this.src='https://i.imgur.com/m3Fl9eq.png';">
+        </a>
+
+        <a href="Grades.html">
+            <img class="button" src="https://i.imgur.com/2PKWJiJ.png" alt="Grades" 
+                onmouseover="this.src='https://i.imgur.com/60vPKEA.png';" 
+                onmouseout="this.src='https://i.imgur.com/2PKWJiJ.png';">
+        </a>
+
+        <a href="Médailles.html">
+            <img class="button" src="https://i.imgur.com/kzZrU05.png" alt="Médailles" 
+                onmouseover="this.src='https://i.imgur.com/4beZ6fQ.png';" 
+                onmouseout="this.src='https://i.imgur.com/kzZrU05.png';">
+        </a>
+
+        <a href="Données.html">
+            <img class="button" src="https://i.imgur.com/e9kXEht.png" alt="Données" 
+                onmouseover="this.src='https://i.imgur.com/yeQwmjM.png';" 
+                onmouseout="this.src='https://i.imgur.com/e9kXEht.png';">
+        </a>
+    </div>
+
+</body>
+</html>

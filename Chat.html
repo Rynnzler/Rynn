@@ -1,0 +1,246 @@
+<!DOCTYPE html>
+<html lang="fr">
+<head>
+    <meta charset="UTF-8">
+    <title>Page d'Accueil avec Chat en Ligne</title>
+    <link href="https://fonts.googleapis.com/css2?family=Bebas+Neue&display=swap" rel="stylesheet"> 
+    <style>
+        body, html {
+            font-family: 'Bebas Neue', sans-serif;
+            color: #ff5e00;
+            margin: 0;
+            padding: 0;
+            width: 100%;
+            height: 100%;
+            display: flex;
+            flex-direction: column;
+            background-image: url('https://i.imgur.com/BwoLRUW.jpg');
+            background-attachment: fixed;
+            background-size: cover;
+            background-position: center;
+            background-repeat: no-repeat;
+            text-shadow: -2px -2px 0 #000000, 2px -2px 0 #000000, -2px 2px 0 #000000, 2px 2px 0 #000000;
+        }
+
+        .navbar {
+            display: flex;
+            justify-content: space-around;
+            align-items: center;
+            width: 100%;
+            background-image: url(https://i.imgur.com/gb8A6Hr.jpg);
+            background-size: cover;
+            background-position: center;
+            background-color: #333;
+            position: fixed;
+            top: 0;
+            left: 0;
+            padding: 10px 0;
+            border-bottom: 3px solid #ff5e00;
+            z-index: 1000;
+        }
+
+        .main-content {
+            padding-top: 100px; /* Adjusted to account for navbar height */
+            display: flex;
+            flex-direction: column;
+            align-items: center; /* Centers content */
+            width: auto;
+        }
+
+        .chat-container {
+            width: 1000px;
+            height: 700px;
+            margin: 20px;
+            background-color: rgba(255, 145, 0, 0.459);
+            background-image: url('https://i.imgur.com/ZQOaVgB.jpg');
+            padding: 20px;
+            border-radius: 8px;
+            box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2);
+            display: flex;
+            flex-direction: column;
+            justify-content: space-between;
+        }
+
+        .chat-box {
+            flex-grow: 1;
+            overflow-y: auto;
+            border: 1px solid #ff5e00;
+            padding: 10px;
+            background-color: rgba(255, 72, 0, 0.247);
+        }
+
+        .message {
+            padding: 10px;
+            margin: 10px 0;
+            border-radius: 5px;
+            background-color: #ff5e00;
+            color: white;
+        }
+
+        .message.me {
+            background-color: #333;
+        }
+
+        .input-container {
+            display: flex;
+            margin-top: 20px;
+        }
+
+        input[type="text"] {
+            flex-grow: 1;
+            padding: 10px;
+            border: 1px solid #ff5e00;
+            border-radius: 5px;
+        }
+
+        button {
+            padding: 10px 20px;
+            background-color: #ff5e00;
+            color: white;
+            border: none;
+            border-radius: 5px;
+            cursor: pointer;
+        }
+
+        button:hover {
+            background-color: #333;
+        }
+
+    </style>
+</head>
+
+<body> 
+
+    <div class="main-content">
+        <div class="chat-container">
+            <div class="chat-box" id="chat-box">
+                <!-- Les messages apparaîtront ici -->
+            </div>
+
+            <div class="input-container">
+                <input type="text" id="message-input" placeholder="Écrire un message...">
+                <button onclick="sendMessage()">Envoyer</button>
+            </div>
+        </div>
+    </div> 
+
+    <div class="navbar">
+        <a href="Untitled-2.html">
+            <img class="button" src="https://i.imgur.com/qSIUdoa.png" alt="Accueil" 
+                onmouseover="this.src='https://i.imgur.com/eTJ4Czl.png';" 
+                onmouseout="this.src='https://i.imgur.com/qSIUdoa.png';">
+        </a>
+        <a href="membres.html">
+            <img class="button" src="https://i.imgur.com/LoXJ9Mm.png" alt="Membres" 
+                onmouseover="this.src='https://i.imgur.com/m3Fl9eq.png';" 
+                onmouseout="this.src='https://i.imgur.com/LoXJ9Mm.png';">
+        </a>
+
+        <a href="Grades.html">
+            <img class="button" src="https://i.imgur.com/2PKWJiJ.png" alt="Grades" 
+                onmouseover="this.src='https://i.imgur.com/60vPKEA.png';" 
+                onmouseout="this.src='https://i.imgur.com/2PKWJiJ.png';">
+        </a>
+
+        <a href="Médailles.html">
+            <img class="button" src="https://i.imgur.com/kzZrU05.png" alt="Médailles" 
+                onmouseover="this.src='https://i.imgur.com/4beZ6fQ.png';" 
+                onmouseout="this.src='https://i.imgur.com/kzZrU05.png';">
+        </a>
+
+        <a href="Données.html">
+            <img class="button" src="https://i.imgur.com/e9kXEht.png" alt="Données" 
+                onmouseover="this.src='https://i.imgur.com/yeQwmjM.png';" 
+                onmouseout="this.src='https://i.imgur.com/e9kXEht.png';">
+        </a>
+
+        <a href="Défis.html">
+            <img class="button" src="https://i.imgur.com/EAdOzFg.png" alt="Défis" 
+                onmouseover="this.src='https://i.imgur.com/FtbxMU4.png';" 
+                onmouseout="this.src='https://i.imgur.com/EAdOzFg.png';">
+        </a>
+
+        <a href="Quartiers.html">
+            <img class="button" src="https://i.imgur.com/8RhLHcm.png" alt="Défis" 
+                onmouseover="this.src='https://i.imgur.com/zmMFIM9.png';" 
+                onmouseout="this.src='https://i.imgur.com/8RhLHcm.png';">
+        </a>
+    </div>
+    <script>
+        const chatBox = document.getElementById('chat-box');
+
+        function sendMessage() {
+            const messageInput = document.getElementById('message-input');
+            const messageText = messageInput.value;
+
+            if (messageText.trim() !== '') {
+                // Créer un nouveau message
+                const newMessage = document.createElement('div');
+                newMessage.classList.add('message', 'me');
+                newMessage.textContent = messageText;
+
+                // Ajouter le message dans la boîte de chat
+                chatBox.appendChild(newMessage);
+
+                // Scroller vers le bas
+                chatBox.scrollTop = chatBox.scrollHeight;
+
+                // Effacer le champ de saisie
+                messageInput.value = '';
+            }
+        }
+    </script>
+    <script src="https://www.gstatic.com/firebasejs/8.6.1/firebase-app.js"></script>
+    <script src="https://www.gstatic.com/firebasejs/8.6.1/firebase-database.js"></script>
+    
+    <script>
+        // Import the functions you need from the SDKs you need
+        import { initializeApp } from "firebase/app";
+        import { getAnalytics } from "firebase/analytics";
+
+        // Configurer Firebase
+        var firebaseConfig = {
+            apiKey: "AIzaSyBGoOY4Arp92HiGxCkIUOg0W9n5K1E8_pw",
+            authDomain: "chat-rynncorp.firebaseapp.com",
+            projectId: "chat-rynncorp",
+            storageBucket: "chat-rynncorp.appspot.com",
+            messagingSenderId: "330481993560",
+            appId: "1:330481993560:web:d1aebfef221c25fc1f872d",
+            measurementId: "G-ZT57ZG57Y8"
+        };
+        // Initialize Firebase
+        const app = initializeApp(firebaseConfig);
+        const analytics = getAnalytics(app);
+
+        firebase.initializeApp(firebaseConfig);
+    
+        var database = firebase.database();
+    
+        // Envoyer un message
+        function sendMessage() {
+            const messageInput = document.getElementById('message-input');
+            const messageText = messageInput.value;
+    
+            if (messageText.trim() !== '') {
+                const messageRef = database.ref('messages').push();
+                messageRef.set({
+                    user: "Moi",
+                    text: messageText,
+                    timestamp: Date.now()
+                });
+                messageInput.value = '';
+            }
+        }
+    
+        // Récupérer les messages en temps réel
+        database.ref('messages').on('child_added', function(snapshot) {
+            const message = snapshot.val();
+            const newMessage = document.createElement('div');
+            newMessage.classList.add('message');
+            newMessage.textContent = message.user + ": " + message.text;
+            chatBox.appendChild(newMessage);
+            chatBox.scrollTop = chatBox.scrollHeight;
+        });
+    </script>
+</body>
+</html>

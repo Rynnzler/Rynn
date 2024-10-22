@@ -1,0 +1,176 @@
+<!DOCTYPE html>
+<html lang="fr">
+<head>
+    <meta charset="UTF-8">
+    <title>Page d'Accueil avec Boutons Images</title>
+    <link href="https://fonts.googleapis.com/css2?family=Bebas+Neue&display=swap" rel="stylesheet"> 
+    <style>
+        body, html {
+            font-family: 'Bebas Neue', sans-serif;
+            font-size: 100px; /*Augmente la taille du texte pour tous le document */
+            color: #ff5e00; /*Change la couleur du texte pour tous le document */
+            text-shadow: -2px -2px 0 #000, 2px -2px 0 #000, -2px 2px 0 #000, 2px 2px 0 #000; /*Contour noir du texte pour tous le document*/
+            margin: 0;
+            padding: 0;
+            padding-bottom: 70px;
+            width: 100%;
+            height: 100%;
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            background-image: url('https://i.imgur.com/BwoLRUW.jpg');
+            background-size: cover; /* Assure que l'image couvre toute la page */
+            background-position: center; /* Centre l'image de fond */
+            background-repeat: no-repeat;
+        }
+
+        .navbar {
+            display: flex;
+            justify-content: space-around; /* Répartit uniformément l'espace entre les boutons */
+            align-items: center;
+            width: 100%;
+            height: 70px;
+            background-image: url('https://i.imgur.com/gb8A6Hr.jpg');
+            background-size: cover;
+            background-position: center;
+            background-color: #333; /* Couleur de fond de la barre de navigation */
+            position: fixed; /* Fixe la barre en haut de l'écran */
+            top: 0;
+            left: 0;
+            padding: 0px 0; /* Ajoute un peu d'espace au-dessus et en dessous des boutons */
+            border-bottom: 3px solid #ff5e00;
+            z-index: 1000;
+        }
+
+        .footer-bar {
+            display: flex;
+            width: 100%;
+            background-image: url(https://i.imgur.com/gb8A6Hr.jpg);
+            background-size: cover;
+            background-position: center;
+            background-color: #333; /* Couleur de fond de la barre de navigation */
+            position: fixed; /* Fixe la barre en haut de l'écran */
+            bottom: 0;
+            left: 0;
+            padding: 10px 0; /* Ajoute un peu d'espace au-dessus et en dessous des boutons */
+            height: 60px;
+            border-top: 3px solid #ff5e00;
+            color: #ff5e00;
+            margin: 0;
+            font-size: 20px;
+            text-align: center;
+        }
+
+        .button {
+            cursor: pointer;
+            transition: transform 0.3s ease; /* Optionnel: ajoute un effet de transition au survol */
+        }
+
+        .button:hover {
+            transform: scale(1.1); /* Optionnel: agrandit légèrement le bouton au survol */
+        }
+
+        .main-content {
+            display: flex;
+            flex-direction: column; /* Pour aligner les éléments verticalement */
+            align-items: center; /* Centrer horizontalement */
+            justify-content: center; /* Centrer verticalement dans le viewport */
+            height: calc(100vh - 60px - 60px); /* Hauteur totale moins la navbar et le footer */
+            padding-top: 0; /* Ajusté si nécessaire */
+            gap: 5px; /* Espace entre le texte et le bouton */
+        }
+
+        .textFrame {
+            padding: 20px;
+            color: #ff5e00;
+            font-size: 20px;
+            width: auto;
+            height: auto;
+            text-align: center;
+            margin: 20px 0;
+            margin-left: 10px;
+            margin-right: 10px;
+        }
+
+        .button-container-connexion {
+            display: flex;
+            justify-content: center; /* Centrage horizontal du bouton dans son conteneur */
+            width: 100%; /* Assure que le conteneur prend toute la largeur disponible */
+        }
+
+        .button-connexion {
+            cursor: pointer;
+            transition: transform 0.3s ease; /* Conserve l'effet de transition au survol */
+            width: 200px; /* Nouvelle largeur */
+            height: auto; /* Ajuste automatiquement la hauteur pour préserver le ratio */
+        }
+
+        .login-container {
+            margin: 20px;
+            padding: 20px;
+            background-color: #42424200; /* Couleur de fond de l'encadré */
+            background-image: url();
+            background-size: 200%;
+            background-repeat: no-repeat;
+        }
+
+        .form-group {
+            margin-bottom: 5px; /* Espace entre les champs du formulaire */
+            font-size: 50px;
+        }
+
+        .form-group label {
+            display: block; /* Les labels s'affichent au-dessus des champs de saisie */
+        }
+
+        .form-group input {
+            width: 90%; /* Les champs de saisie prennent toute la largeur disponible */
+            padding: 8px; /* Espace intérieur pour rendre la saisie plus confortable */
+            margin-top: 15px; /* Espace au-dessus des champs de saisie */
+            border-radius: 4px; /* Bords arrondis des champs de saisie */
+        }
+
+        .login-button {
+            display: block; /* Le bouton s'affiche en bloc */
+            width: 100%; /* Le bouton prend toute la largeur disponible */
+            padding: 10px; /* Espace intérieur pour rendre le bouton plus grand */
+            background-color: #535353; /* Couleur de fond du bouton */
+            color: rgb(255, 255, 255); /* Couleur du texte du bouton */
+            border: none; /* Aucune bordure pour le bouton */
+            border-radius: 4px; /* Bords arrondis du bouton */
+            cursor: pointer; /* Change le curseur en main lors du survol */
+        }
+
+        .login-button:hover {
+            background-color: #ff7b00; /* Couleur de fond du bouton au survol */
+        }
+
+    </style>
+</head>
+
+<body>
+    <div class="main-content">
+        <div class="login-container">
+            <form action="Identifiants.php" method="POST">
+                <div class="form-group">
+                    <label for="pseudo">Pseudo :</label>
+                    <input type="text" id="pseudo" name="pseudo" required>
+                </div>
+                <div class="form-group">
+                    <label for="password">Mot de passe :</label>
+                    <input type="password" id="password" name="password" required>
+                </div>
+                <div class="form-action">
+                    <button type="submit" class="login-button">Connexion</button>
+                </div>
+            </form>
+        </div>
+    </div>
+
+    <div class="navbar">
+    </div>
+
+    <div class="footer-bar">
+    </div> 
+</body>
+</html>

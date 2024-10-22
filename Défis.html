@@ -1,0 +1,191 @@
+<!DOCTYPE html>
+<html lang="fr">
+<head>
+    <meta charset="UTF-8">
+    <title>Défis</title>
+    <link href="https://fonts.googleapis.com/css2?family=Bebas+Neue&display=swap" rel="stylesheet"> 
+    <style>
+        body, html {
+        font-family: 'Bebas Neue', sans-serif;
+        color: #ff5e00;
+        margin: 0;
+        padding: 0;
+        width: 100%;
+        height: 100%;
+        display: flex;
+        flex-direction: column;
+        background-image: url('https://i.imgur.com/BwoLRUW.jpg');
+        background-attachment: fixed;
+        background-size: cover;
+        background-position: center;
+        background-repeat: no-repeat;
+        text-shadow: -2px -2px 0 #000000, 2px -2px 0 #000000, -2px 2px 0 #000000, 2px 2px 0 #000000;
+        }
+
+        .navbar {
+        display: flex;
+        justify-content: space-around;
+        align-items: center;
+        width: 100%;
+        background-image: url(https://i.imgur.com/gb8A6Hr.jpg);
+        background-size: cover;
+        background-position: center;
+        background-color: #333;
+        position: fixed;
+        top: 0;
+        left: 0;
+        padding: 10px 0;
+        border-bottom: 3px solid #ff5e00;
+        z-index: 1000;
+        }
+
+        .main-content {
+        padding-top: 220px; /* Adjusted to account for navbar height */
+        display: flex;
+        flex-direction: column;
+        align-items: center; /* Centers content */
+        width: auto;
+        }
+
+        .blocs-container {
+        display: flex;
+        flex-wrap: wrap; /* Allows items to wrap */
+        justify-content: center; /* Centers containers */
+        align-items: flex-start;
+        }
+
+        .image-text-container {
+        display: flex;
+        flex-direction: column; /* Keeps text below the image */
+        align-items: center; /* Centers items horizontally */
+        text-align: center;
+        margin: 20px;
+        width: 150px; /* Set a fixed width */
+        height: 460px; /* Adjust based on your content */
+        position: relative;
+        overflow: hidden;
+        }
+
+        .default-content, .hover-content {
+        position: absolute;
+        top: 0;
+        left: 0;
+        width: 100%;
+        align-items: center;
+        justify-content: center;
+        transition: top 0.5s ease;
+        }
+
+        .hover-content {
+        top: 100%;
+        }
+
+        .image-text-container:hover .default-content {
+        top: -100%;
+        }
+
+        .image-text-container:hover .hover-content {
+        top: 0;
+        }
+
+        .image {
+        width: 100%; /* Adjust if needed */
+        height: auto;
+        margin-bottom: 10px;
+        }
+
+        .text {
+        font-size: 90px;
+        text-align: center;
+        }
+
+        .textePage {
+        margin-left: 20px;
+        padding-top: 10px;
+        font-size: 30px;
+        }
+
+        .button {
+        cursor: pointer;
+        transition: transform 0.3s ease;
+        }
+
+        .button:hover {
+        transform: scale(1.1);
+        }
+
+        .image-crop-container {
+        width: 100px; /* Largeur de la section de l'image que vous voulez montrer */
+        height: 150px; /* Hauteur de la section de l'image que vous voulez montrer */
+        background-image: url('https://i.imgur.com/OABDGX2.png'); /* Remplacez par l'URL de votre image */
+        background-position: 50px -100px; /* Ajustez ces valeurs pour choisir la section de l'image */
+        background-size: 500px 400px; /* Ajustez à la taille originale de l'image ou selon le besoin */
+        background-repeat: no-repeat;
+        }
+
+        .caviarde {
+            background: repeating-linear-gradient(
+                135deg,
+                black,
+                black 10px,
+                transparent 10px,
+                transparent 20px
+            );
+            color: transparent;
+            user-select: none; /* Empêche la sélection du texte pour plus de sécurité */
+        }
+
+    </style>
+</head>
+
+<body> 
+
+    <div class="main-content">
+  
+    </div> 
+
+    <div class="navbar">
+        <a href="Untitled-2.html">
+            <img class="button" src="https://i.imgur.com/qSIUdoa.png" alt="Accueil" 
+                onmouseover="this.src='https://i.imgur.com/eTJ4Czl.png';" 
+                onmouseout="this.src='https://i.imgur.com/qSIUdoa.png';">
+        </a>
+        <a href="membres.html">
+            <img class="button" src="https://i.imgur.com/LoXJ9Mm.png" alt="Membres" 
+                onmouseover="this.src='https://i.imgur.com/m3Fl9eq.png';" 
+                onmouseout="this.src='https://i.imgur.com/LoXJ9Mm.png';">
+        </a>
+
+        <a href="Grades.html">
+            <img class="button" src="https://i.imgur.com/2PKWJiJ.png" alt="Grades" 
+                onmouseover="this.src='https://i.imgur.com/60vPKEA.png';" 
+                onmouseout="this.src='https://i.imgur.com/2PKWJiJ.png';">
+        </a>
+
+        <a href="Médailles.html">
+            <img class="button" src="https://i.imgur.com/kzZrU05.png" alt="Médailles" 
+                onmouseover="this.src='https://i.imgur.com/4beZ6fQ.png';" 
+                onmouseout="this.src='https://i.imgur.com/kzZrU05.png';">
+        </a>
+
+        <a href="Données.html">
+            <img class="button" src="https://i.imgur.com/e9kXEht.png" alt="Données" 
+                onmouseover="this.src='https://i.imgur.com/yeQwmjM.png';" 
+                onmouseout="this.src='https://i.imgur.com/e9kXEht.png';">
+        </a>
+
+        <a href="Défis.html">
+            <img class="button" src="https://i.imgur.com/FtbxMU4.png" alt="Défis" 
+                onmouseover="this.src='https://i.imgur.com/FtbxMU4.png';" 
+                onmouseout="this.src='https://i.imgur.com/FtbxMU4.png';">
+        </a>
+
+        <a href="Quartiers.html">
+            <img class="button" src="https://i.imgur.com/8RhLHcm.png" alt="Défis" 
+                onmouseover="this.src='https://i.imgur.com/zmMFIM9.png';" 
+                onmouseout="this.src='https://i.imgur.com/8RhLHcm.png';">
+        </a>
+    </div>
+
+</body>
+</html>
